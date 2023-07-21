@@ -8,6 +8,7 @@
     padding: 0;
     background-color: transparent;
     cursor: pointer;
+    margin-bottom: 48px;
 }
 
 .production-card-image {
@@ -18,5 +19,5 @@
 }
 
 .production-card-container:hover {
-    transform: scale(1.03);
+    transform: scale(1.02);
 }
