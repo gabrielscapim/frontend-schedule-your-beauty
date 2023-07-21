@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styles from './ProductionCard.module.css';
 
 function ProductionCard({ name, src }) {

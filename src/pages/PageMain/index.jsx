@@ -1,4 +1,4 @@
-import ProductionCard from '../components/ProductionCard/ProductionCard';
+import ProductionCard from '../../components/ProductionCard';
 import styles from './PageMain.module.css';
 
 function PageMain() {
