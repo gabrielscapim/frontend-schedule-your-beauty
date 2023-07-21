@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import styles from './ProductionCard.module.css';
 
 function ProductionCard({ name, src }) {
@@ -13,5 +12,10 @@ function ProductionCard({ name, src }) {
     </button>
   );
 }
+
+ProductionCard.propTypes = {
+  name: PropTypes.string.isRequired,
+  src: PropTypes.string.isRequired,
+};
 
 export default ProductionCard;
