@@ -4,11 +4,11 @@ function Header() {
   return (
     <header className={ styles.header }>
       <div className={ styles['header-container'] }>
-        <div>
-          Isabela Colli
+        <div className={ styles['header-name-principal'] }>
+          isabela colli
         </div>
-        <div>
-          Beauty
+        <div className={ styles['header-name-secondary'] }>
+          beauty
         </div>
       </div>
     </header>
