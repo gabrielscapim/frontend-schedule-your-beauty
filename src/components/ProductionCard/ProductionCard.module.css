@@ -1,7 +1,12 @@
 .production-card-container {
-    border: 1px solid black;
     font-family: 'Athena';
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
 }
 
 .production-card-image {
+    width: 100%;
+    border: 2px solid black;
 }

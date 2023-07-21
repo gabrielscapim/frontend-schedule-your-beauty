@@ -7,3 +7,7 @@
     font-family: 'Bellaboo';
     src: url('../public/fonts/bellaboo-1.ttf') format('truetype');
 }
+
+body {
+    background-color: #f8f8f8;
+}

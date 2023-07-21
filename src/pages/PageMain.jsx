@@ -4,27 +4,17 @@ import styles from './PageMain.module.css';
 /* eslint-disable sonarjs/no-duplicate-string */
 function PageMain() {
   const productionsTest = [
-    {
-      src: '../../public/images/primeira.jpeg',
-      name: 'maquiagem beauty',
-    },
-    {
-      src: '../../public/images/segunda.jpeg',
-      name: 'maquiagem special day',
-    },
-    {
-      src: '../../public/images/terceira.jpeg',
-      name: 'penteado',
-    },
+    '../../public/images/primeira.jpeg',
+    '../../public/images/segunda.jpeg',
+    '../../public/images/terceira.jpeg',
   ];
 
   return (
     <section className={ styles['productions-container'] }>
-      { productionsTest.map(({ src, name }) => (
+      { productionsTest.map((production, index) => (
         <ProductionCard
-          key={ name }
-          name={ name }
-          src={ src }
+          key={ `production-main-${index}` }
+          src={ production }
         />
       )) }
     </section>
