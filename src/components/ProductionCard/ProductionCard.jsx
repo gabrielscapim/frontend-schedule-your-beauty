@@ -1,15 +1,16 @@
 /* eslint-disable react/prop-types */
 import styles from './ProductionCard.module.css';
 
-function ProductionCard({ src }) {
+function ProductionCard({ name, src }) {
   return (
-    <div className={ styles['production-card-container'] }>
+    <button className={ styles['production-card-container'] }>
+      <span>{ name.toUpperCase() }</span>
       <img
         src={ src }
         alt="production-main"
         className={ styles['production-card-image'] }
       />
-    </div>
+    </button>
   );
 }
 

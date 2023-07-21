@@ -8,6 +8,11 @@
     src: url('../public/fonts/bellaboo-1.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'MuseoSansRounded-300';
+    src: url('../public/fonts/MuseoSansRounded-300.ttf') format('truetype');
+}
+
 body {
     background-color: #f8f8f8;
 }
