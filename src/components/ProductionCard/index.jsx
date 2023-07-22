@@ -1,9 +1,12 @@
 import PropTypes from 'prop-types';
 import styles from './ProductionCard.module.css';
 
-function ProductionCard({ name = '', src }) {
+function ProductionCard({ name = '', src, onClick = () => null }) {
   return (
-    <button className={ styles['production-card-container'] }>
+    <button
+      className={ styles['production-card-container'] }
+      onClick={ onClick }
+    >
       { name && (
         <span>{ name.toUpperCase() }</span>
       )}
@@ -19,6 +22,7 @@ function ProductionCard({ name = '', src }) {
 ProductionCard.propTypes = {
   name: PropTypes.string,
   src: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
 };
 
 export default ProductionCard;
