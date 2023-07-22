@@ -1,4 +1,3 @@
-import PageHeader from '../../components/PageHeader';
 import ProductionCard from '../../components/ProductionCard';
 import styles from './PageHairstyle.module.css';
 
@@ -28,7 +27,6 @@ function pageHairStyle() {
 
   return (
     <section className={ styles['page-container'] }>
-      <PageHeader title="PENTEADOS" />
       <div className={ styles['productions-container'] }>
         { beautyImagesTest.map(({ name, src }, index) => (
           <ProductionCard

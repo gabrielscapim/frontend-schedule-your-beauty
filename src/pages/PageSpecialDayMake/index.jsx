@@ -1,4 +1,3 @@
-import PageHeader from '../../components/PageHeader';
 import ProductionCard from '../../components/ProductionCard';
 import styles from './PageSpecialDayMake.module.css';
 
@@ -44,7 +43,6 @@ function pageBeautyMake() {
 
   return (
     <section className={ styles['page-container'] }>
-      <PageHeader title="MAQUIAGEM SPECIAL DAY" />
       <div className={ styles['productions-container'] }>
         { beautyImagesTest.map(({ name, src }, index) => (
           <ProductionCard
