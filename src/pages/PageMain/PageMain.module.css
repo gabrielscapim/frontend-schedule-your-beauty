@@ -1,0 +1,81 @@
+.page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'MuseoSansRounded-300';
+}
+
+.productions-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.welcome-container {
+    width: 100%;
+    margin-bottom: 100px;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: white;
+}
+
+.welcome-image {
+    width: 40%;
+}
+
+.welcome-text {
+    width: 40%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.welcome-text h3 {
+    font-size: 36px;
+}
+
+.welcome-text p {
+    font-size: 24px;
+}
+
+@media all and (max-width: 1024px) {
+    .welcome-text h3 {
+        font-size: 32px;
+    }
+
+    .welcome-text p {
+        font-size: 20px;
+    }
+}
+
+@media all and (max-width: 868px) {
+    .welcome-container {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 48px;
+    }
+
+    .welcome-image {
+        width: 100%;
+    }
+
+    .welcome-text {
+        margin-top: 32px;
+        width: 95%;
+    }
+
+    .welcome-text p {
+        margin: 0px;
+    }
+
+    .welcome-text h3 {
+        margin-top: 0px;
+    }
+
+    .productions-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}

@@ -1,0 +1,9 @@
+.page-container {
+    width: 100%;
+}
+
+.productions-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
