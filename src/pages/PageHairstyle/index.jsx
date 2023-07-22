@@ -26,14 +26,19 @@ function pageHairStyle() {
   ];
 
   return (
-    <section className={ styles['productions-container'] }>
-      { beautyImagesTest.map(({ name, src }, index) => (
-        <ProductionCard
-          key={ `hairstyle-${index}` }
-          name={ name }
-          src={ src }
-        />
-      )) }
+    <section className={ styles['page-container'] }>
+      <div className={ styles['page-title-container'] }>
+        PENTEADOS
+      </div>
+      <div className={ styles['productions-container'] }>
+        { beautyImagesTest.map(({ name, src }, index) => (
+          <ProductionCard
+            key={ `hairstyle-${index}` }
+            name={ name }
+            src={ src }
+          />
+        )) }
+      </div>
     </section>
   );
 }
