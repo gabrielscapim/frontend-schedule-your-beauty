@@ -21,3 +21,9 @@
 .production-card-container:hover {
     transform: scale(1.02);
 }
+
+@media all and (max-width: 868px) {
+    .production-card-container {
+        width: 90%;
+    }
+}

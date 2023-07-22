@@ -54,7 +54,26 @@
     .welcome-container {
         flex-direction: column;
         align-items: center;
+        margin-bottom: 48px;
     }
+
+    .welcome-image {
+        width: 100%;
+    }
+
+    .welcome-text {
+        margin-top: 32px;
+        width: 95%;
+    }
+
+    .welcome-text p {
+        margin: 0px;
+    }
+
+    .welcome-text h3 {
+        margin-top: 0px;
+    }
+
     .productions-container {
         flex-direction: column;
         align-items: center;
