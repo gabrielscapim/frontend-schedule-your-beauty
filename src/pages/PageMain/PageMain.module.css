@@ -39,3 +39,24 @@
 .welcome-text p {
     font-size: 24px;
 }
+
+@media all and (max-width: 1024px) {
+    .welcome-text h3 {
+        font-size: 32px;
+    }
+
+    .welcome-text p {
+        font-size: 20px;
+    }
+}
+
+@media all and (max-width: 868px) {
+    .welcome-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .productions-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
