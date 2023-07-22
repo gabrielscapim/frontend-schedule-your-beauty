@@ -24,16 +24,32 @@ function PageMain() {
   ];
 
   return (
-    <section className={ styles['productions-container'] }>
-      { productionsTest.map(({ src, name, onClick }) => (
-        <ProductionCard
-          key={ name }
-          name={ name }
-          src={ src }
-          onClick={ onClick }
+    <div className={ styles['page-container'] }>
+      <section className={ styles['welcome-container'] }>
+        <img
+          src="../../public/images/main-image.jpeg"
+          alt="main"
+          className={ styles['welcome-image'] }
         />
-      )) }
-    </section>
+        <div className={ styles['welcome-text'] }>
+          <h3>BEM VINDA!</h3>
+          <p>
+            Sou a Isa e meu objetivo é elevar sua autoestima e
+            acentuar sua autenticidade, te deixando ainda mais bonita!
+          </p>
+        </div>
+      </section>
+      <section className={ styles['productions-container'] }>
+        { productionsTest.map(({ src, name, onClick }) => (
+          <ProductionCard
+            key={ name }
+            name={ name }
+            src={ src }
+            onClick={ onClick }
+          />
+        )) }
+      </section>
+    </div>
   );
 }
 
