@@ -36,3 +36,34 @@
 .nav-location-true {
     font-weight: bold;
 }
+
+@media all and (max-width: 1024px) {
+    .header {
+        font-size: 16px;
+        margin-bottom: 12px;
+    }
+
+    .header-line-2 img {
+        width: 300px;
+    }
+}
+
+@media all and (max-width: 868px) {
+    .header nav {
+        flex-direction: column-reverse;
+    }
+    .header-line-1 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .header-line-1 a {
+        margin-bottom: 16px;
+    }
+    .header-line-2 img {
+        width: 300px;
+        margin-right: 0px;
+    }
+}
