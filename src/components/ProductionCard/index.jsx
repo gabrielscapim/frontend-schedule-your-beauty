@@ -1,28 +1,44 @@
 import PropTypes from 'prop-types';
 import styles from './ProductionCard.module.css';
 
-function ProductionCard({ name = '', src, onClick = () => null }) {
+function ProductionCard({ name = '', src, principalPage, location }) {
   return (
-    <button
-      className={ styles['production-card-container'] }
-      onClick={ onClick }
-    >
-      { name && (
-        <span>{ name.toUpperCase() }</span>
-      )}
-      <img
-        src={ src }
-        alt="production"
-        className={ styles['production-card-image'] }
-      />
-    </button>
+    principalPage ? (
+      <a
+        className={ styles['production-card-container'] }
+        href={ `/${location}` }
+      >
+        { name && (
+          <span>{ name.toUpperCase() }</span>
+        )}
+        <img
+          src={ src }
+          alt="production"
+          className={ styles['production-card-image'] }
+        />
+      </a>
+    ) : (
+      <div
+        className={ styles['production-card-container'] }
+      >
+        { name && (
+          <span>{ name.toUpperCase() }</span>
+        )}
+        <img
+          src={ src }
+          alt="production"
+          className={ styles['production-card-image'] }
+        />
+      </div>
+    )
   );
 }
 
 ProductionCard.propTypes = {
-  name: PropTypes.string,
+  name: PropTypes.string.isRequired,
   src: PropTypes.string.isRequired,
-  onClick: PropTypes.func,
+  principalPage: PropTypes.bool.isRequired,
+  location: PropTypes.string.isRequired,
 };
 
 export default ProductionCard;

@@ -7,6 +7,8 @@ function Header() {
   };
   const location = window.location.href;
 
+  console.log(('renderizou'));
+
   return (
     <header className={ styles.header }>
       <nav>

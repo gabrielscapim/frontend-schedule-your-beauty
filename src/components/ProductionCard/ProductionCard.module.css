@@ -7,8 +7,9 @@
     border: none;
     padding: 0;
     background-color: transparent;
-    cursor: pointer;
     margin-bottom: 48px;
+    color: inherit;
+    text-decoration: none;
 }
 
 .production-card-image {
