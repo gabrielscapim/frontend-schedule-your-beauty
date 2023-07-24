@@ -14,9 +14,9 @@ function PageSchedule() {
     productionType: 'Maquiagem e penteado',
     eventName: '',
     eventPeriod: '',
+    eventDate: '',
+    eventHour: '',
   });
-  const [eventDate, setEventDate] = useState('');
-  const [eventHour, setEventHour] = useState('');
 
   const {
     eventUserName,
@@ -24,6 +24,8 @@ function PageSchedule() {
     productionType,
     eventName,
     eventPeriod,
+    eventDate,
+    eventHour,
   } = state;
 
   const handleChange = ({ target }) => {
@@ -101,7 +103,10 @@ function PageSchedule() {
         <DatePicker
           id="event-date-input"
           selected={ eventDate }
-          onChange={ (date) => setEventDate(date) }
+          onChange={ (date) => setState((prevState) => ({
+            ...prevState,
+            eventDate: date,
+          })) }
           includeDates={ [new Date()] }
           locale={ ptBR }
           dateFormat="dd/MM/yyyy"
@@ -116,7 +121,10 @@ function PageSchedule() {
         <DatePicker
           id="event-hour-input"
           selected={ eventHour }
-          onChange={ (hour) => setEventHour(hour) }
+          onChange={ (hour) => setState((prevState) => ({
+            ...prevState,
+            eventHour: hour,
+          })) }
           locale={ ptBR }
           showTimeSelect
           showTimeSelectOnly
