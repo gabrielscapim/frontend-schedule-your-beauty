@@ -111,6 +111,7 @@ function PageSchedule() {
           locale={ ptBR }
           dateFormat="dd/MM/yyyy"
           wrapperClassName={ styles['date-picker'] }
+          placeholderText="Escolha a data do evento"
         />
         <label
           className={ styles['date-label'] }
@@ -130,6 +131,7 @@ function PageSchedule() {
           showTimeSelectOnly
           dateFormat="h:mm aa"
           wrapperClassName={ styles['date-picker'] }
+          placeholderText="Escolha o horário em que deseja ficar pronta"
         />
         <Button
           type="button"
