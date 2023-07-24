@@ -131,8 +131,21 @@ function PageSchedule() {
           showTimeSelectOnly
           dateFormat="h:mm aa"
           wrapperClassName={ styles['date-picker'] }
-          placeholderText="Escolha o horário em que deseja ficar pronta"
+          placeholderText="Escolha o horário que deseja ficar pronta"
         />
+        <span className={ styles['date-advice'] }>
+          Caso você não tenha encontrado a data desejada, clique
+          <span> </span>
+          <a
+            href="https://wa.me/5544991343233?text=Oi%20Isa,%20gostaria%20de%20marcar%20uma%20produção!"
+            target="_blank"
+            rel="noreferrer"
+          >
+            aqui
+          </a>
+          <span> </span>
+          para entrar em contato comigo.
+        </span>
         <Button
           type="button"
           label="Agendar"
