@@ -1,5 +1,6 @@
-import Input from '../../components/form/input';
+import Input from '../../components/form/Input';
 import styles from './PageSchedule.module.css';
+import Button from '../../components/form/Button';
 
 function PageSchedule() {
   return (
@@ -21,6 +22,7 @@ function PageSchedule() {
           maxInputLength={ 64 }
           name="eventPeriod"
         />
+        <Button label="test" />
       </div>
       <div className={ styles['form-group-2'] }>
         <Input
