@@ -41,29 +41,10 @@
     font-size: 24px;
 }
 
-.schedule-button {
-    font-family: 'MuseoSansRounded-300';
-    padding: 16px 28px 16px 28px;
-    width: auto;
-    border: 1px solid black;
-    background-color: black;
-    color: white;
-    text-align: center;
-    font-size: 16px;
-    border-radius: 12px;
-    font-weight: bold;
-    margin-top: 16px;
-    cursor: pointer;
-}
-
-.schedule-button:hover {
-    background-color: white;
-    color: black;
-}
-
-.schedule-button:focus {
-    background-color: white;
-    color: black;
+.buttons-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
 }
 
 @media all and (max-width: 1024px) {
@@ -73,6 +54,10 @@
 
     .welcome-text p {
         font-size: 20px;
+    }
+
+    .buttons-container {
+        flex-direction: column;
     }
 }
 
@@ -107,5 +92,9 @@
 
     .schedule-button {
         margin-top: 32px;
+    }
+
+    .buttons-container {
+        flex-direction: row;
     }
 }

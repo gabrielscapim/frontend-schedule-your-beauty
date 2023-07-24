@@ -28,6 +28,11 @@ function PageMain() {
     navigate(0);
   };
 
+  const contactHandleClick = () => {
+    console.log('clico');
+    window.location.href = 'https://wa.me/5544991343233?text=Oi%20Isa,%20gostaria%20de%20mais%20informações%20sobre%20suas%20produções!';
+  };
+
   return (
     <div className={ styles['page-container'] }>
       <section className={ styles['welcome-container'] }>
@@ -42,11 +47,18 @@ function PageMain() {
             Sou a Isa e meu objetivo é elevar sua autoestima e
             acentuar sua autenticidade, te deixando ainda mais bonita!
           </p>
-          <Button
-            type="button"
-            label="Agende seu horário"
-            onClick={ scheduleHandleClick }
-          />
+          <div className={ styles['buttons-container'] }>
+            <Button
+              type="button"
+              label="Agende seu horário"
+              onClick={ scheduleHandleClick }
+            />
+            <Button
+              type="button"
+              label="Entrar em contato"
+              onClick={ contactHandleClick }
+            />
+          </div>
         </div>
       </section>
       <nav className={ styles['productions-container'] }>
