@@ -34,6 +34,12 @@ function PageMain() {
             Sou a Isa e meu objetivo é elevar sua autoestima e
             acentuar sua autenticidade, te deixando ainda mais bonita!
           </p>
+          <button
+            className={ styles['schedule-button'] }
+            onClick={ () => console.log('clicou') }
+          >
+            Agende seu horário
+          </button>
         </div>
       </section>
       <nav className={ styles['productions-container'] }>
