@@ -6,6 +6,10 @@ import Input from '../../components/form/Input';
 import Select from '../../components/form/Select';
 import styles from './PageSchedule.module.css';
 import 'react-datepicker/dist/react-datepicker.css';
+import {
+  isDateInputEmpty,
+  isInputEmpty,
+  isInputsCorrect } from '../../helpers/verifyScheduleInputs';
 
 function PageSchedule() {
   const [state, setState] = useState({
@@ -17,6 +21,7 @@ function PageSchedule() {
     eventDate: '',
     eventHour: '',
   });
+  const [inputWarningShouldAppear, setInputWarningShouldAppear] = useState(false);
 
   const {
     eventUserName,
@@ -37,9 +42,17 @@ function PageSchedule() {
   };
 
   const confirmScheduleHandleClick = () => {
+    const isCorrect = isInputsCorrect(
+      [eventDate, eventHour],
+      [eventUserName, eventUserTel, eventName, eventPeriod],
+    );
+
+    if (!isCorrect) return setInputWarningShouldAppear(true);
+
     if (window.confirm('Deseja confirmar o agendamento da sua producão?')) {
       console.log('confirmou');
     }
+
     console.log('não confirmou');
   };
 
@@ -55,6 +68,7 @@ function PageSchedule() {
           maxInputLength={ 32 }
           name="eventUserName"
           handleChange={ handleChange }
+          isInputCorrect={ isInputEmpty(eventUserName) && inputWarningShouldAppear }
         />
         <Input
           label="Contato (WhatsApp)"
@@ -65,6 +79,7 @@ function PageSchedule() {
           maxInputLength={ 12 }
           name="eventUserTel"
           handleChange={ handleChange }
+          isInputCorrect={ isInputEmpty(eventUserTel) && inputWarningShouldAppear }
         />
         <Select
           id="production-type-select"
@@ -83,6 +98,7 @@ function PageSchedule() {
           maxInputLength={ 32 }
           name="eventName"
           handleChange={ handleChange }
+          isInputCorrect={ isInputEmpty(eventName) && inputWarningShouldAppear }
         />
         <Input
           label="Período do evento"
@@ -94,6 +110,7 @@ function PageSchedule() {
           maxInputLength={ 32 }
           name="eventPeriod"
           handleChange={ handleChange }
+          isInputCorrect={ isInputEmpty(eventPeriod) && inputWarningShouldAppear }
         />
         <label
           className={ styles['date-label'] }
@@ -111,7 +128,11 @@ function PageSchedule() {
           includeDates={ [new Date()] }
           locale={ ptBR }
           dateFormat="dd/MM/yyyy"
-          wrapperClassName={ styles['date-picker'] }
+          wrapperClassName={
+            isDateInputEmpty(eventDate) && inputWarningShouldAppear
+              ? styles['date-picker-wrong']
+              : styles['date-picker']
+          }
           placeholderText="Escolha a data do evento"
         />
         <label
@@ -131,7 +152,11 @@ function PageSchedule() {
           showTimeSelect
           showTimeSelectOnly
           dateFormat="h:mm aa"
-          wrapperClassName={ styles['date-picker'] }
+          wrapperClassName={
+            isDateInputEmpty(eventHour) && inputWarningShouldAppear
+              ? styles['date-picker-wrong']
+              : styles['date-picker']
+          }
           placeholderText="Escolha o horário que deseja ficar pronta"
         />
         <span className={ styles['date-advice'] }>
@@ -147,6 +172,11 @@ function PageSchedule() {
           <span> </span>
           para entrar em contato comigo.
         </span>
+        { inputWarningShouldAppear && (
+          <span className={ styles['inputs-advice'] }>
+            Preencha os campos obrigatórios
+          </span>
+        ) }
         <Button
           type="button"
           label="Agendar"

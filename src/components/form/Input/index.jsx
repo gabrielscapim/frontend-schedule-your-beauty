@@ -13,6 +13,7 @@ function Input({
   name,
   maxInputLength,
   handleChange,
+  isInputCorrect,
 }) {
   return (
     <div className={ styles['input-container'] }>
@@ -23,7 +24,7 @@ function Input({
       </label>
 
       <input
-        className={ styles.input }
+        className={ isInputCorrect ? styles['input-wrong'] : styles.input }
         type={ type }
         id={ id }
         placeholder={ placeHolder }

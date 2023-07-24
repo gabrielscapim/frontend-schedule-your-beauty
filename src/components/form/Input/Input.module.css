@@ -8,7 +8,6 @@
     margin-bottom: 8px;
 }
 
-
 .input {
     border: 1px solid gray;
     border-radius: 1px;
@@ -20,4 +19,12 @@
 .input:focus {
     outline: none;
     border: 1px solid black;
+}
+
+.input-wrong {
+    border: 1px solid red;
+    border-radius: 1px;
+    padding: 2px 4px 2px 4px;
+    height: 28px;
+    font-family: 'MuseoSansRounded-300';
 }
