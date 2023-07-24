@@ -7,12 +7,17 @@ function Header() {
   };
   const location = window.location.href;
 
-  console.log(('renderizou'));
-
   return (
     <header className={ styles.header }>
       <nav>
         <div className={ styles['header-line-1'] }>
+          <a
+            href="/hairstyle"
+            className={ styles[navOptionClass] }
+            style={ location.includes('hairstyle') ? navLocationStyle : {} }
+          >
+            Agendar produção
+          </a>
           <a
             href="/beauty-make"
             className={ styles[navOptionClass] }
