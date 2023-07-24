@@ -1,4 +1,5 @@
 import Input from '../../components/form/Input';
+import Select from '../../components/form/Select';
 import styles from './PageSchedule.module.css';
 
 function PageSchedule() {
@@ -20,6 +21,12 @@ function PageSchedule() {
           placeHolder="Manhã, tarde, noite"
           maxInputLength={ 64 }
           name="eventPeriod"
+        />
+        <Select
+          id="production-type-select"
+          label="Selecione a sua produção"
+          options={ ['Maquiagem e penteado', 'Apenas maquiagem', 'Apenas penteado'] }
+          name="productionType"
         />
       </div>
       <div className={ styles['form-group-2'] }>

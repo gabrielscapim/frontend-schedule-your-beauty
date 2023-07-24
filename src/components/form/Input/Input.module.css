@@ -8,16 +8,12 @@
     margin-bottom: 8px;
 }
 
-.input-container input {
-    padding: 2px 4px 2px 4px;
-    height: 28px;
-    font-family: 'MuseoSansRounded-300';
-}
-
 .input {
     border: 1px solid gray;
     border-radius: 1px;
-    height: 24px;
+    padding: 2px 4px 2px 4px;
+    height: 28px;
+    font-family: 'MuseoSansRounded-300';
 }
 
 .input:focus {

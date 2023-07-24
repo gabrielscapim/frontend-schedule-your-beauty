@@ -1,0 +1,22 @@
+.select-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.select-container label {
+    margin-bottom: 8px;
+}
+
+.select {
+    height: 34px;
+    font-family: 'MuseoSansRounded-300';
+    background-color: #fff;
+    border: 1px solid gray;
+}
+
+.select:focus {
+    outline: none;
+    border: 1px solid black;
+}
+
+

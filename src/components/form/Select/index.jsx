@@ -23,6 +23,7 @@ function Select({
         value={ inputValue }
         name={ name }
         onChange={ (event) => handleChange(event) }
+        className={ styles.select }
       >
         { options.map((option) => (
           <option
