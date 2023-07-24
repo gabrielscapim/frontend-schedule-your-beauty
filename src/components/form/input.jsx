@@ -15,7 +15,7 @@ function Input({
   handleChange,
 }) {
   return (
-    <div>
+    <div className={ styles['input-container'] }>
       <label
         htmlFor={ id }
       >

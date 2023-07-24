@@ -1,8 +1,19 @@
 .form {
     font-family: 'MuseoSansRounded-300';
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
 }
 
 .form-group-1 {
     display: flex;
     flex-direction: column;
+    width: 45%;
+}
+
+.form-group-2 {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
 }
