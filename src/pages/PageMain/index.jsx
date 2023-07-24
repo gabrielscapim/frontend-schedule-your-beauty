@@ -1,4 +1,5 @@
 import ProductionCard from '../../components/ProductionCard';
+import Button from '../../components/form/Button';
 import styles from './PageMain.module.css';
 
 function PageMain() {
@@ -34,12 +35,10 @@ function PageMain() {
             Sou a Isa e meu objetivo é elevar sua autoestima e
             acentuar sua autenticidade, te deixando ainda mais bonita!
           </p>
-          <button
-            className={ styles['schedule-button'] }
-            onClick={ () => console.log('clicou') }
-          >
-            Agende seu horário
-          </button>
+          <Button
+            type="button"
+            label="Agende seu horário"
+          />
         </div>
       </section>
       <nav className={ styles['productions-container'] }>
