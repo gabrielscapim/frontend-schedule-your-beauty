@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './Button.module.css';
 
 function Button({
   label,
@@ -12,6 +13,7 @@ function Button({
       type={ type }
       onClick={ onClick }
       disabled={ disabled }
+      className={ styles.button }
     >
       { label }
     </button>
