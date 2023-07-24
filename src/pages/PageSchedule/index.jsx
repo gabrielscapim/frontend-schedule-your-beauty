@@ -52,7 +52,7 @@ function PageSchedule() {
           type="text"
           inputValue={ eventUserName }
           placeHolder="Digite seu nome"
-          maxInputLength={ 64 }
+          maxInputLength={ 32 }
           name="eventUserName"
           handleChange={ handleChange }
         />
@@ -61,7 +61,8 @@ function PageSchedule() {
           id="event-user-tel"
           type="number"
           inputValue={ eventUserTel }
-          placeHolder="Digite seu nome"
+          placeHolder="Digite seu número de WhatsApp"
+          maxInputLength={ 12 }
           name="eventUserTel"
           handleChange={ handleChange }
         />
@@ -79,7 +80,7 @@ function PageSchedule() {
           type="text"
           inputValue={ eventName }
           placeHolder="Casamento, formatura, ensaio fotográfico"
-          maxInputLength={ 64 }
+          maxInputLength={ 32 }
           name="eventName"
           handleChange={ handleChange }
         />
@@ -90,7 +91,7 @@ function PageSchedule() {
           min="2023-07-23"
           inputValue={ eventPeriod }
           placeHolder="Manhã, tarde, noite"
-          maxInputLength={ 64 }
+          maxInputLength={ 32 }
           name="eventPeriod"
           handleChange={ handleChange }
         />
