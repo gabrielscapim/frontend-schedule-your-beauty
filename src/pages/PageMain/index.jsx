@@ -1,8 +1,10 @@
+import { useNavigate } from 'react-router-dom';
 import ProductionCard from '../../components/ProductionCard';
 import Button from '../../components/form/Button';
 import styles from './PageMain.module.css';
 
 function PageMain() {
+  const navigate = useNavigate();
   const productionsTest = [
     {
       src: '../../public/images/primeira.jpeg',
@@ -21,6 +23,11 @@ function PageMain() {
     },
   ];
 
+  const scheduleHandleClick = () => {
+    navigate('/schedule');
+    navigate(0);
+  };
+
   return (
     <div className={ styles['page-container'] }>
       <section className={ styles['welcome-container'] }>
@@ -38,6 +45,7 @@ function PageMain() {
           <Button
             type="button"
             label="Agende seu horário"
+            onClick={ scheduleHandleClick }
           />
         </div>
       </section>
