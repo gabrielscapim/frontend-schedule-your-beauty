@@ -32,6 +32,24 @@
     color: black;
 }
 
+.date-picker input {
+    border: 1px solid gray;
+    border-radius: 1px;
+    padding: 2px 1.5% 2px 1.5%;
+    height: 28px;
+    font-family: 'MuseoSansRounded-300';
+    align-items: center;
+    width: 97%;
+}
+
+.date-picker {
+    margin-bottom: 24px;
+}
+
+.date-label {
+    margin-bottom: 8px;
+}
+
 @media all and (max-width: 1024px) {
     .form-group-1 {
         width: 90%;

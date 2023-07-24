@@ -29,7 +29,6 @@ function PageMain() {
   };
 
   const contactHandleClick = () => {
-    console.log('clico');
     window.location.href = 'https://wa.me/5544991343233?text=Oi%20Isa,%20gostaria%20de%20mais%20informações%20sobre%20suas%20produções!';
   };
 
