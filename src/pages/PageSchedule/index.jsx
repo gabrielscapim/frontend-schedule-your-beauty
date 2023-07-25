@@ -10,6 +10,7 @@ import {
   isDateInputEmpty,
   isInputEmpty,
   isInputsCorrect } from '../../helpers/verifyScheduleInputs';
+import Modal from '../../components/Modal';
 
 function PageSchedule() {
   const [state, setState] = useState({
@@ -22,6 +23,7 @@ function PageSchedule() {
     eventHour: '',
   });
   const [inputWarningShouldAppear, setInputWarningShouldAppear] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const {
     eventUserName,
@@ -41,7 +43,7 @@ function PageSchedule() {
     }));
   };
 
-  const confirmScheduleHandleClick = () => {
+  const handleSchedule = () => {
     const isCorrect = isInputsCorrect(
       [eventDate, eventHour],
       [eventUserName, eventUserTel, eventName, eventPeriod],
@@ -49,15 +51,27 @@ function PageSchedule() {
 
     if (!isCorrect) return setInputWarningShouldAppear(true);
 
-    if (window.confirm('Deseja confirmar o agendamento da sua producão?')) {
-      console.log('confirmou');
-    }
+    setModalOpen(true);
+  };
 
-    console.log('não confirmou');
+  const handleConfirmSchedule = () => {
+    setModalOpen(false);
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
   };
 
   return (
     <form className={ styles.form }>
+      <Modal
+        isOpen={ modalOpen }
+        onClose={ handleCloseModal }
+        onConfirm={ handleConfirmSchedule }
+      >
+        <h3>Confirmação de agendamento</h3>
+        <p>Deseja confirmar o agendamento de sua produção?</p>
+      </Modal>
       <div className={ styles['form-group-1'] }>
         <Input
           label="Nome"
@@ -138,6 +152,7 @@ function PageSchedule() {
               : styles['date-picker']
           }
           placeholderText="Escolha a data do evento"
+          disabled={ modalOpen }
         />
         <label
           className={ styles['date-label'] }
@@ -162,6 +177,7 @@ function PageSchedule() {
               : styles['date-picker']
           }
           placeholderText="Escolha o horário que deseja ficar pronta"
+          disabled={ modalOpen }
         />
         <span className={ styles['date-advice'] }>
           Caso você não tenha encontrado a data desejada, clique
@@ -184,7 +200,7 @@ function PageSchedule() {
         <Button
           type="button"
           label="Agendar"
-          onClick={ confirmScheduleHandleClick }
+          onClick={ handleSchedule }
         />
       </div>
     </form>
