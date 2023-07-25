@@ -15,7 +15,7 @@ function PageSchedule() {
   const [state, setState] = useState({
     eventUserName: '',
     eventUserTel: '',
-    productionType: 'Maquiagem e penteado',
+    productionType: 'Maquiagem e penteado (R$ 180,00)',
     eventName: '',
     eventPeriod: '',
     eventDate: '',
@@ -84,7 +84,11 @@ function PageSchedule() {
         <Select
           id="production-type-select"
           label="Selecione a sua produção"
-          options={ ['Maquiagem e penteado', 'Apenas maquiagem', 'Apenas penteado'] }
+          options={
+            ['Maquiagem e penteado (R$ 180,00)',
+              'Apenas maquiagem (R$ 130,00) ',
+              'Apenas penteado (R$ 50,00)']
+          }
           inputValue={ productionType }
           name="productionType"
           handleChange={ handleChange }
