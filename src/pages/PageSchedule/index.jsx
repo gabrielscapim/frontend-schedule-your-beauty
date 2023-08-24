@@ -76,7 +76,7 @@ function PageSchedule() {
   return (
     <>
       { isScheduleConfirmed && <ScheduleConfirmed /> }
-      { isScheduleFailed && <ScheduleConfirmed isScheduleFailed /> }
+      { <ScheduleConfirmed isScheduleFailed /> }
       { !isScheduleConfirmed && !isScheduleFailed && (
         <form className={ styles.form }>
           <Modal
