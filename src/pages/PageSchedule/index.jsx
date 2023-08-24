@@ -76,7 +76,7 @@ function PageSchedule() {
   return (
     <>
       { isScheduleConfirmed && <ScheduleConfirmed /> }
-      { <ScheduleConfirmed isScheduleFailed /> }
+      { isScheduleFailed && <ScheduleConfirmed isScheduleFailed /> }
       { !isScheduleConfirmed && !isScheduleFailed && (
         <form className={ styles.form }>
           <Modal
@@ -94,7 +94,7 @@ function PageSchedule() {
               type="text"
               inputValue={ eventUserName }
               placeHolder="Digite seu nome"
-              maxInputLength={ 32 }
+              maxInputLength={ 45 }
               name="eventUserName"
               handleChange={ handleChange }
               isInputCorrect={ isInputEmpty(eventUserName) && inputWarningShouldAppear }
@@ -105,7 +105,6 @@ function PageSchedule() {
               type="number"
               inputValue={ eventUserTel }
               placeHolder="Digite seu número de WhatsApp"
-              maxInputLength={ 12 }
               name="eventUserTel"
               handleChange={ handleChange }
               isInputCorrect={ isInputEmpty(eventUserTel) && inputWarningShouldAppear }
@@ -128,7 +127,7 @@ function PageSchedule() {
               type="text"
               inputValue={ eventName }
               placeHolder="Casamento, formatura, ensaio fotográfico"
-              maxInputLength={ 32 }
+              maxInputLength={ 20 }
               name="eventName"
               handleChange={ handleChange }
               isInputCorrect={ isInputEmpty(eventName) && inputWarningShouldAppear }
@@ -140,7 +139,7 @@ function PageSchedule() {
               min="2023-07-23"
               inputValue={ eventPeriod }
               placeHolder="Manhã, tarde, noite"
-              maxInputLength={ 32 }
+              maxInputLength={ 20 }
               name="eventPeriod"
               handleChange={ handleChange }
               isInputCorrect={ isInputEmpty(eventPeriod) && inputWarningShouldAppear }
@@ -193,6 +192,11 @@ function PageSchedule() {
               }
               placeholderText="Escolha o horário do evento"
               disabled={ confirmScheduleModalOpen }
+              // excludeTimes={ [
+              //   new Date(), // Bloquear o horário atual
+              //   new Date('2023-08-24T15:00:00'), // Bloquear um horário específico
+              //   new Date('2023-08-24T16:40:00'),
+              // ] }
             />
             <span className={ styles['date-advice'] }>
               Caso você não tenha encontrado a data desejada, clique
