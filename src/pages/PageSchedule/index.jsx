@@ -158,9 +158,9 @@ function PageSchedule() {
         />
         <label
           className={ styles['date-label'] }
-          htmlFor="event-date-input"
+          htmlFor="event-hour-input"
         >
-          Quero estar pronta às
+          Horário
         </label>
         <DatePicker
           id="event-hour-input"
@@ -178,7 +178,7 @@ function PageSchedule() {
               ? styles['date-picker-wrong']
               : styles['date-picker']
           }
-          placeholderText="Escolha o horário que deseja ficar pronta"
+          placeholderText="Escolha o horário do evento"
           disabled={ modalOpen }
         />
         <span className={ styles['date-advice'] }>
