@@ -27,6 +27,7 @@ function PageSchedule() {
   const [inputWarningShouldAppear, setInputWarningShouldAppear] = useState(false);
   const [confirmScheduleModalOpen, setConfirmScheduleModalOpen] = useState(false);
   const [isScheduleConfirmed, setIsScheduleConfirmed] = useState(false);
+  const [isScheduleFailed, setIsScheduleFailed] = useState(false);
 
   const {
     eventUserName,
@@ -58,9 +59,14 @@ function PageSchedule() {
   };
 
   const handleConfirmSchedule = async () => {
-    setConfirmScheduleModalOpen(false);
-    setIsScheduleConfirmed(true);
-    await whatsAppRequest(state);
+    try {
+      setConfirmScheduleModalOpen(false);
+      setIsScheduleConfirmed(true);
+      await whatsAppRequest(state);
+    } catch (error) {
+      console.log(error);
+      setIsScheduleFailed(true);
+    }
   };
 
   const handleCloseModal = () => {
@@ -70,7 +76,8 @@ function PageSchedule() {
   return (
     <>
       { isScheduleConfirmed && <ScheduleConfirmed /> }
-      { !isScheduleConfirmed && (
+      { isScheduleFailed && <ScheduleConfirmed isScheduleFailed /> }
+      { !isScheduleConfirmed && !isScheduleFailed && (
         <form className={ styles.form }>
           <Modal
             isOpen={ confirmScheduleModalOpen }
