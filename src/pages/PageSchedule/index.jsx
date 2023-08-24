@@ -11,6 +11,7 @@ import {
   isInputEmpty,
   isInputsCorrect } from '../../helpers/verifyScheduleInputs';
 import Modal from '../../components/Modal';
+import whatsAppRequest from '../../services/whatsAppRequest';
 
 function PageSchedule() {
   const [state, setState] = useState({
@@ -54,8 +55,9 @@ function PageSchedule() {
     setModalOpen(true);
   };
 
-  const handleConfirmSchedule = () => {
+  const handleConfirmSchedule = async () => {
     setModalOpen(false);
+    await whatsAppRequest(state);
   };
 
   const handleCloseModal = () => {
