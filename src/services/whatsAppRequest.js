@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { formatDate, formatHour } from '../utils/formatDate';
 
 const whatsAppRequest = async (scheduleData) => {
   const {
@@ -10,15 +11,6 @@ const whatsAppRequest = async (scheduleData) => {
     eventDate,
     eventHour,
   } = scheduleData;
-
-  const MAX_HOUR = 10;
-  const formatNumberWithZero = (number) => {
-    return number < MAX_HOUR ? `0${number}` : number;
-  };
-  // eslint-disable-next-line max-len
-  const formattedDate = `${formatNumberWithZero(eventDate.getDate())}/${formatNumberWithZero(eventDate.getMonth() + 1)}/${eventDate.getFullYear()}`;
-  // eslint-disable-next-line max-len
-  const formattedHour = `${formatNumberWithZero(eventHour.getHours())}:${formatNumberWithZero(eventHour.getMinutes())}`;
 
   const headers = {
     Authorization: `Bearer ${import.meta.env.VITE_WHATSAPP_TOKEN}`,
@@ -40,8 +32,8 @@ Contato (Whatsapp): ${eventUserTel}
 Tipo da produção: ${productionType}
 Evento: ${eventName}
 Período do evento: ${eventPeriod}
-Data do evento: ${formattedDate}
-Horário: ${formattedHour}
+Data do evento: ${formatDate(eventDate)}
+Horário: ${formatHour(eventHour)}
       `,
     },
   };
