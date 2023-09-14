@@ -5,6 +5,11 @@ const URL = import.meta.env.VITE_API_URL;
 const apiRequest = async (method, endpoint, data = null) => {
   try {
     let response;
+    const config = {
+      headers: {
+        Authorization: '',
+      },
+    };
 
     switch (method.toLowerCase()) {
     case 'get':
