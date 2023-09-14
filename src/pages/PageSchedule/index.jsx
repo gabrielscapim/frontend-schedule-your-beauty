@@ -1,24 +1,22 @@
 import DatePicker from 'react-datepicker';
 import ptBR from 'date-fns/locale/pt-BR';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Button from '../../components/form/Button';
 import Input from '../../components/form/Input';
 import Select from '../../components/form/Select';
 import styles from './PageSchedule.module.css';
 import 'react-datepicker/dist/react-datepicker.css';
-import {
-  isDateInputEmpty,
-  isInputEmpty,
-  isInputsCorrect } from '../../helpers/verifyScheduleInputs';
+import { isInputEmpty, isInputsCorrect } from '../../helpers/verifyScheduleInputs';
 import Modal from '../../components/Modal';
 import whatsAppRequest from '../../services/whatsAppRequest';
 import ScheduleConfirmed from '../../components/ScheduleComponents/ScheduleConfirmed';
+import apiRequest from '../../services/apiRequest';
 
 function PageSchedule() {
   const [state, setState] = useState({
     eventUserName: '',
     eventUserTel: '',
-    productionType: 'Maquiagem e penteado (R$ 180,00)',
+    productionType: '',
     eventName: '',
     eventPeriod: '',
     eventDate: '',
@@ -28,7 +26,9 @@ function PageSchedule() {
   const [confirmScheduleModalOpen, setConfirmScheduleModalOpen] = useState(false);
   const [isScheduleConfirmed, setIsScheduleConfirmed] = useState(false);
   const [isScheduleFailed, setIsScheduleFailed] = useState(false);
-
+  const [datesToSchedule, setDatesToSchedule] = useState([]);
+  const [timesToSchedule, setTimesToSchedule] = useState([]);
+  const [productions, setProductions] = useState([]);
   const {
     eventUserName,
     eventUserTel,
@@ -38,6 +38,33 @@ function PageSchedule() {
     eventDate,
     eventHour,
   } = state;
+
+  const fetchProductions = async () => {
+    const productionsFromAPI = await apiRequest('get', '/productions');
+    const formatProductions = productionsFromAPI.map(({ name, price }) => (
+      `${name} (R$ ${price})`
+    ));
+    setProductions(formatProductions);
+  };
+
+  const fetchEventDates = async () => {
+    const eventDatesFromAPI = await apiRequest('get', '/scheduling-time/days');
+    setDatesToSchedule(eventDatesFromAPI);
+  };
+
+  const fetchEventTimes = async () => {
+    const eventTimesFromAPI = await apiRequest('get', '/scheduling-time');
+    setTimesToSchedule(eventTimesFromAPI);
+  };
+
+  useEffect(() => {
+    fetchProductions();
+    fetchEventDates();
+  }, []);
+
+  useEffect(() => {
+    fetchEventTimes();
+  }, [eventDate]);
 
   const handleChange = ({ target }) => {
     const { name, value } = target;
@@ -75,7 +102,7 @@ function PageSchedule() {
 
   return (
     <>
-      { isScheduleConfirmed && <ScheduleConfirmed /> }
+      { isScheduleConfirmed && !isScheduleFailed && <ScheduleConfirmed /> }
       { isScheduleFailed && <ScheduleConfirmed isScheduleFailed /> }
       { !isScheduleConfirmed && !isScheduleFailed && (
         <form className={ styles.form }>
@@ -112,11 +139,7 @@ function PageSchedule() {
             <Select
               id="production-type-select"
               label="Selecione a sua produção"
-              options={
-                ['Maquiagem e penteado (R$ 180,00)',
-                  'Apenas maquiagem (R$ 130,00) ',
-                  'Apenas penteado (R$ 50,00)']
-              }
+              options={ productions }
               inputValue={ productionType }
               name="productionType"
               handleChange={ handleChange }
@@ -157,46 +180,21 @@ function PageSchedule() {
                 ...prevState,
                 eventDate: date,
               })) }
-              includeDates={ [new Date()] }
+              includeDates={ datesToSchedule }
+              minDate={ new Date() }
               locale={ ptBR }
               dateFormat="dd/MM/yyyy"
-              wrapperClassName={
-                isDateInputEmpty(eventDate) && inputWarningShouldAppear
-                  ? styles['date-picker-wrong']
-                  : styles['date-picker']
-              }
+              wrapperClassName={ styles['date-picker'] }
               placeholderText="Escolha a data do evento"
               disabled={ confirmScheduleModalOpen }
             />
-            <label
-              className={ styles['date-label'] }
-              htmlFor="event-hour-input"
-            >
-              Horário
-            </label>
-            <DatePicker
-              id="event-hour-input"
-              selected={ eventHour }
-              onChange={ (hour) => setState((prevState) => ({
-                ...prevState,
-                eventHour: hour,
-              })) }
-              locale={ ptBR }
-              showTimeSelect
-              showTimeSelectOnly
-              dateFormat="h:mm aa"
-              wrapperClassName={
-                isDateInputEmpty(eventHour) && inputWarningShouldAppear
-                  ? styles['date-picker-wrong']
-                  : styles['date-picker']
-              }
-              placeholderText="Escolha o horário do evento"
-              disabled={ confirmScheduleModalOpen }
-              // excludeTimes={ [
-              //   new Date(), // Bloquear o horário atual
-              //   new Date('2023-08-24T15:00:00'), // Bloquear um horário específico
-              //   new Date('2023-08-24T16:40:00'),
-              // ] }
+            <Select
+              id="production-hour-select"
+              label="Horário de agendamento"
+              options={ timesToSchedule }
+              inputValue={ eventHour }
+              name="eventHour"
+              handleChange={ handleChange }
             />
             <span className={ styles['date-advice'] }>
               Caso você não tenha encontrado a data desejada, clique

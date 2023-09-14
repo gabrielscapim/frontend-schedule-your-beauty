@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const URL = '';
+const URL = import.meta.env.VITE_API_URL;
 
 const apiRequest = async (method, endpoint, data = null) => {
   try {
