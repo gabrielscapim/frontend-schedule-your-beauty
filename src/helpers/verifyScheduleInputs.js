@@ -15,3 +15,8 @@ export const isInputsCorrect = (dateArray, otherInputsArray) => {
 
   return !isDateArrayWrong && !isOtherInputsArrayWrong;
 };
+
+export const isUserNumberCorrect = (userNumber) => {
+  const expectedUserNumberLenght = 16;
+  return userNumber.length === expectedUserNumberLenght;
+};

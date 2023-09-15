@@ -1,12 +1,15 @@
 import DatePicker from 'react-datepicker';
 import ptBR from 'date-fns/locale/pt-BR';
 import { useState, useEffect } from 'react';
+import MaskedInput from 'react-text-mask';
 import Button from '../../components/form/Button';
 import Input from '../../components/form/Input';
 import Select from '../../components/form/Select';
 import styles from './PageSchedule.module.css';
 import 'react-datepicker/dist/react-datepicker.css';
-import { isInputEmpty, isInputsCorrect } from '../../helpers/verifyScheduleInputs';
+import { isInputEmpty,
+  isInputsCorrect,
+  isUserNumberCorrect } from '../../helpers/verifyScheduleInputs';
 import Modal from '../../components/Modal';
 import whatsAppRequest from '../../services/whatsAppRequest';
 import ScheduleConfirmed from '../../components/ScheduleComponents/ScheduleConfirmed';
@@ -16,8 +19,8 @@ import fetchEventTimes from '../../services/fetchEventTimes';
 
 function PageSchedule() {
   const [state, setState] = useState({
-    eventUserName: '',
-    eventUserTel: '',
+    userName: '',
+    userNumber: '',
     productionType: '',
     eventName: '',
     eventDate: '',
@@ -31,8 +34,8 @@ function PageSchedule() {
   const [timesToSchedule, setTimesToSchedule] = useState([]);
   const [productions, setProductions] = useState([]);
   const {
-    eventUserName,
-    eventUserTel,
+    userName,
+    userNumber,
     productionType,
     eventName,
     eventDate,
@@ -78,10 +81,12 @@ function PageSchedule() {
   const handleSchedule = () => {
     const isCorrect = isInputsCorrect(
       [eventDate, eventTime],
-      [eventUserName, eventUserTel, eventName, eventPeriod],
+      [userName, userNumber, eventName],
     );
 
-    if (!isCorrect) return setInputWarningShouldAppear(true);
+    if (!isCorrect || !isUserNumberCorrect(userNumber)) {
+      return setInputWarningShouldAppear(true);
+    }
 
     setConfirmScheduleModalOpen(true);
   };
@@ -120,22 +125,29 @@ function PageSchedule() {
               label="Nome"
               id="event-user-name"
               type="text"
-              inputValue={ eventUserName }
+              inputValue={ userName }
               placeHolder="Digite seu nome"
               maxInputLength={ 45 }
-              name="eventUserName"
+              name="userName"
               handleChange={ handleChange }
-              isInputCorrect={ isInputEmpty(eventUserName) && inputWarningShouldAppear }
+              isInputCorrect={ isInputEmpty(userName) && inputWarningShouldAppear }
             />
-            <Input
-              label="Contato (WhatsApp)"
-              id="event-user-tel"
-              type="number"
-              inputValue={ eventUserTel }
-              placeHolder="Digite seu número de WhatsApp"
-              name="eventUserTel"
-              handleChange={ handleChange }
-              isInputCorrect={ isInputEmpty(eventUserTel) && inputWarningShouldAppear }
+            <label
+              className={ styles['input-label'] }
+              htmlFor="event-user-number"
+            >
+              Contato (WhatsApp)
+            </label>
+            <MaskedInput
+              id="event-user-number"
+              mask={ ['(', /[1-9]/, /\d/, ')', ' ', /\d/, ' ', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/] }
+              value={ userNumber }
+              placeholder="Digite seu número de WhatsApp"
+              name="userNumber"
+              onChange={ handleChange }
+              guide={ false }
+              className={ (isInputEmpty(userNumber) || !isUserNumberCorrect(userNumber))
+                && inputWarningShouldAppear ? styles['input-wrong'] : styles.input }
             />
             <Select
               id="production-type-select"
@@ -157,7 +169,7 @@ function PageSchedule() {
               isInputCorrect={ isInputEmpty(eventName) && inputWarningShouldAppear }
             />
             <label
-              className={ styles['date-label'] }
+              className={ styles['input-label'] }
               htmlFor="event-date-input"
             >
               Data do evento
