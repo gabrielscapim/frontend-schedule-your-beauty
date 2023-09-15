@@ -20,7 +20,6 @@ function PageSchedule() {
     eventUserTel: '',
     productionType: '',
     eventName: '',
-    eventPeriod: '',
     eventDate: '',
     eventTime: '',
   });
@@ -36,7 +35,6 @@ function PageSchedule() {
     eventUserTel,
     productionType,
     eventName,
-    eventPeriod,
     eventDate,
     eventTime,
   } = state;
@@ -157,18 +155,6 @@ function PageSchedule() {
               name="eventName"
               handleChange={ handleChange }
               isInputCorrect={ isInputEmpty(eventName) && inputWarningShouldAppear }
-            />
-            <Input
-              label="Período do evento"
-              id="event-period-input"
-              type="text"
-              min="2023-07-23"
-              inputValue={ eventPeriod }
-              placeHolder="Manhã, tarde, noite"
-              maxInputLength={ 20 }
-              name="eventPeriod"
-              handleChange={ handleChange }
-              isInputCorrect={ isInputEmpty(eventPeriod) && inputWarningShouldAppear }
             />
             <label
               className={ styles['date-label'] }
