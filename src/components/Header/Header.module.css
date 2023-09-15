@@ -61,6 +61,13 @@
     .header nav {
         flex-direction: column-reverse;
     }
+    .header-line-1 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
     .header-line-1 a {
         margin-bottom: 16px;
     }
@@ -72,12 +79,11 @@
         overflow: auto;
         white-space: nowrap;
         overflow-x: scroll;
+        display: flex;
         flex-direction: row;
         width: 95%;
         padding: 14px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        display: inline-block;
     }
 
     .header-line-1 a {
