@@ -13,7 +13,8 @@ function Button({
       type={ type }
       onClick={ onClick }
       disabled={ disabled }
-      className={ styles.button }
+      className={ disabled ? `${styles['disabled-button']} ${styles.button}`
+        : styles.button }
     >
       { label }
     </button>
