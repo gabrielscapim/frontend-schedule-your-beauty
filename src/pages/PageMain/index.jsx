@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import ProductionCard from '../../components/ProductionCard';
-import Button from '../../components/form/Button';
+import Button from '../../components/Form/Button';
 import styles from './PageMain.module.css';
 
 function PageMain() {

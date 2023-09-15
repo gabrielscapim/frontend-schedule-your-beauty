@@ -2,9 +2,9 @@ import DatePicker from 'react-datepicker';
 import ptBR from 'date-fns/locale/pt-BR';
 import { useState, useEffect } from 'react';
 import MaskedInput from 'react-text-mask';
-import Button from '../../components/form/Button';
-import Input from '../../components/form/Input';
-import Select from '../../components/form/Select';
+import Button from '../../components/Form/Button';
+import Input from '../../components/Form/Input';
+import Select from '../../components/Form/Select';
 import styles from './PageSchedule.module.css';
 import 'react-datepicker/dist/react-datepicker.css';
 import { isInputEmpty,
