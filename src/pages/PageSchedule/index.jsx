@@ -10,7 +10,9 @@ import { isInputEmpty, isInputsCorrect } from '../../helpers/verifyScheduleInput
 import Modal from '../../components/Modal';
 import whatsAppRequest from '../../services/whatsAppRequest';
 import ScheduleConfirmed from '../../components/ScheduleComponents/ScheduleConfirmed';
-import apiRequest from '../../services/apiRequest';
+import fetchProductions from '../../services/fetchProductions';
+import fetchEventDates from '../../services/fetchEventDates';
+import fetchEventTimes from '../../services/fetchEventTimes';
 
 function PageSchedule() {
   const [state, setState] = useState({
@@ -20,7 +22,7 @@ function PageSchedule() {
     eventName: '',
     eventPeriod: '',
     eventDate: '',
-    eventHour: '',
+    eventTime: '',
   });
   const [inputWarningShouldAppear, setInputWarningShouldAppear] = useState(false);
   const [confirmScheduleModalOpen, setConfirmScheduleModalOpen] = useState(false);
@@ -36,35 +38,36 @@ function PageSchedule() {
     eventName,
     eventPeriod,
     eventDate,
-    eventHour,
+    eventTime,
   } = state;
 
-  const fetchProductions = async () => {
-    const productionsFromAPI = await apiRequest('get', '/productions');
-    const formatProductions = productionsFromAPI.map(({ name, price }) => (
-      `${name} (R$ ${price})`
-    ));
-    setProductions(formatProductions);
+  const getProductions = async () => {
+    const productionsFromAPI = await fetchProductions();
+    setProductions(productionsFromAPI);
+    setState((prevState) => (
+      { ...prevState, productionType: productionsFromAPI[0] || '' }));
   };
 
-  const fetchEventDates = async () => {
-    const eventDatesFromAPI = await apiRequest('get', '/scheduling-time/days');
+  const getEventDates = async () => {
+    const eventDatesFromAPI = await fetchEventDates();
     setDatesToSchedule(eventDatesFromAPI);
   };
 
-  const fetchEventTimes = async () => {
-    const eventTimesFromAPI = await apiRequest('get', '/scheduling-time');
+  const getEventTimes = async () => {
+    const eventTimesFromAPI = await fetchEventTimes(eventDate, productionType);
+
     setTimesToSchedule(eventTimesFromAPI);
+    setState((prevState) => ({ ...prevState, eventTime: eventTimesFromAPI || '' }));
   };
 
   useEffect(() => {
-    fetchProductions();
-    fetchEventDates();
+    getProductions();
+    getEventDates();
   }, []);
 
   useEffect(() => {
-    fetchEventTimes();
-  }, [eventDate]);
+    if (eventDate !== '') getEventTimes();
+  }, [eventDate, productionType]);
 
   const handleChange = ({ target }) => {
     const { name, value } = target;
@@ -76,7 +79,7 @@ function PageSchedule() {
 
   const handleSchedule = () => {
     const isCorrect = isInputsCorrect(
-      [eventDate, eventHour],
+      [eventDate, eventTime],
       [eventUserName, eventUserTel, eventName, eventPeriod],
     );
 
@@ -181,7 +184,6 @@ function PageSchedule() {
                 eventDate: date,
               })) }
               includeDates={ datesToSchedule }
-              minDate={ new Date() }
               locale={ ptBR }
               dateFormat="dd/MM/yyyy"
               wrapperClassName={ styles['date-picker'] }
@@ -189,11 +191,11 @@ function PageSchedule() {
               disabled={ confirmScheduleModalOpen }
             />
             <Select
-              id="production-hour-select"
+              id="production-time-select"
               label="Horário de agendamento"
               options={ timesToSchedule }
-              inputValue={ eventHour }
-              name="eventHour"
+              inputValue={ eventTime }
+              name="eventTime"
               handleChange={ handleChange }
             />
             <span className={ styles['date-advice'] }>
