@@ -11,7 +11,7 @@
 .input {
     border: 1px solid gray;
     border-radius: 1px;
-    padding: 2px 4px 2px 4px;
+    padding: 2px 1.5% 2px 1.5%;
     height: 28px;
     font-family: 'MuseoSansRounded-300';
 }
@@ -24,7 +24,7 @@
 .input-wrong {
     border: 1px solid red;
     border-radius: 1px;
-    padding: 2px 4px 2px 4px;
+    padding: 2px 1.5% 2px 1.5%;
     height: 28px;
     font-family: 'MuseoSansRounded-300';
 }
