@@ -17,7 +17,7 @@ const fetchEventTimes = async (eventDate, productionType) => {
     times = await apiRequest('get', `/scheduling-date-time/time/${date}/make-hair`);
   }
 
-  return times || [];
+  return times;
 };
 
 export default fetchEventTimes;

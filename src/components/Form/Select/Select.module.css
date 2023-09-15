@@ -20,4 +20,10 @@
     border: 1px solid black;
 }
 
-
+.loading {    
+    background-color: #ffffff;
+    background-image: url("https://tjpi-teams-apps-balcao-virtual.azurefd.net/images/typing.gif");
+    background-size: 25px 25px;
+    background-position:16px center;
+    background-repeat: no-repeat;
+}

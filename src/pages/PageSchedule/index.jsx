@@ -33,6 +33,8 @@ function PageSchedule() {
   const [datesToSchedule, setDatesToSchedule] = useState([]);
   const [timesToSchedule, setTimesToSchedule] = useState([]);
   const [productions, setProductions] = useState([]);
+  const [isProductionLoading, setIsProductionsLoading] = useState(true);
+  const [isEventTimesLoading, setIsEventTimesLoading] = useState(true);
   const {
     userName,
     userNumber,
@@ -43,22 +45,26 @@ function PageSchedule() {
   } = state;
 
   const getProductions = async () => {
+    setIsProductionsLoading(true);
     const productionsFromAPI = await fetchProductions();
-    setProductions(productionsFromAPI);
+    if (productionsFromAPI) setIsProductionsLoading(false);
+    setProductions(productionsFromAPI || []);
     setState((prevState) => (
-      { ...prevState, productionType: productionsFromAPI[0] || '' }));
+      { ...prevState, productionType: productionsFromAPI ? productionsFromAPI[0] : '' }));
   };
 
   const getEventDates = async () => {
     const eventDatesFromAPI = await fetchEventDates();
-    setDatesToSchedule(eventDatesFromAPI);
+    setDatesToSchedule(eventDatesFromAPI || []);
   };
 
   const getEventTimes = async () => {
+    setIsEventTimesLoading(true);
     const eventTimesFromAPI = await fetchEventTimes(eventDate, productionType);
+    if (eventTimesFromAPI) setIsEventTimesLoading(false);
 
     setTimesToSchedule(eventTimesFromAPI);
-    setState((prevState) => ({ ...prevState, eventTime: eventTimesFromAPI || '' }));
+    setState((prevState) => ({ ...prevState, eventTime: eventTimesFromAPI || [] }));
   };
 
   useEffect(() => {
@@ -68,6 +74,7 @@ function PageSchedule() {
 
   useEffect(() => {
     if (eventDate !== '') getEventTimes();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [eventDate, productionType]);
 
   const handleChange = ({ target }) => {
@@ -156,6 +163,8 @@ function PageSchedule() {
               inputValue={ productionType }
               name="productionType"
               handleChange={ handleChange }
+              disabled={ isProductionLoading }
+              loading={ isProductionLoading }
             />
             <Input
               label="Evento"
@@ -186,7 +195,6 @@ function PageSchedule() {
               dateFormat="dd/MM/yyyy"
               wrapperClassName={ styles['date-picker'] }
               placeholderText="Escolha a data do evento"
-              disabled={ confirmScheduleModalOpen }
             />
             <Select
               id="production-time-select"
@@ -195,6 +203,8 @@ function PageSchedule() {
               inputValue={ eventTime }
               name="eventTime"
               handleChange={ handleChange }
+              disabled={ isEventTimesLoading }
+              loading={ isEventTimesLoading }
             />
             <span className={ styles['date-advice'] }>
               Caso você não tenha encontrado a data desejada, clique

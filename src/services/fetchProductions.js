@@ -5,7 +5,7 @@ const fetchProductions = async () => {
   const productions = productionsFromAPI
     ? productionsFromAPI.map(({ name, price }) => (
       `${name} (R$ ${price})`
-    )) : [];
+    )) : undefined;
 
   return productions;
 };

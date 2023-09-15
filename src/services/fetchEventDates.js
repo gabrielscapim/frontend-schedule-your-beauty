@@ -5,7 +5,7 @@ const fetchEventDates = async () => {
   const dates = eventDatesFromAPI ? eventDatesFromAPI.map((date) => {
     const splitDate = date.split('-');
     return new Date(splitDate[0], Number(splitDate[1] - 1), splitDate[2]);
-  }) : [];
+  }) : undefined;
 
   return dates;
 };

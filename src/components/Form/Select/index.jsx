@@ -9,6 +9,8 @@ function Select({
   inputValue,
   name,
   handleChange,
+  loading,
+  disabled,
 }) {
   return (
     <div className={ styles['select-container'] }>
@@ -23,7 +25,8 @@ function Select({
         value={ inputValue }
         name={ name }
         onChange={ (event) => handleChange(event) }
-        className={ styles.select }
+        disabled={ disabled }
+        className={ loading ? `${styles.select} ${styles.loading}` : styles.select }
       >
         { options.map((option) => (
           <option
@@ -45,6 +48,8 @@ Select.propTypes = {
   inputValue: PropTypes.string,
   name: PropTypes.string,
   handleChange: PropTypes.func,
+  loading: PropTypes.bool,
+  disabled: PropTypes.bool,
 }.isRequired;
 
 export default Select;
