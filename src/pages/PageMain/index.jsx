@@ -7,17 +7,17 @@ function PageMain() {
   const navigate = useNavigate();
   const productionsTest = [
     {
-      src: '../../public/images/primeira.jpeg',
+      src: '/images/primeira.jpeg',
       name: 'maquiagem beauty',
       location: 'beauty-make',
     },
     {
-      src: '../../public/images/segunda.jpeg',
+      src: '/images/segunda.jpeg',
       name: 'maquiagem special day',
       location: 'special-day-make',
     },
     {
-      src: '../../public/images/terceira.jpeg',
+      src: '/images/terceira.jpeg',
       name: 'penteados',
       location: 'hairstyle',
     },
@@ -36,7 +36,7 @@ function PageMain() {
     <div className={ styles['page-container'] }>
       <section className={ styles['welcome-container'] }>
         <img
-          src="../../public/images/main-image.jpeg"
+          src="/images/main-image.jpeg"
           alt="main"
           className={ styles['welcome-image'] }
         />

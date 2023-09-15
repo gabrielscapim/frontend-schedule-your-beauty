@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { formatDate, formatHour } from '../utils/formatDate';
+import { formatDate } from '../utils/formatDate';
 
 const whatsAppRequest = async (scheduleData) => {
   const {
@@ -33,7 +33,7 @@ Tipo da produção: ${productionType}
 Evento: ${eventName}
 Período do evento: ${eventPeriod}
 Data do evento: ${formatDate(eventDate)}
-Horário: ${formatHour(eventHour)}
+Horário: ${eventHour}
       `,
     },
   };

@@ -43,7 +43,7 @@ function Header() {
         <div className={ styles['header-line-2'] }>
           <a href="/">
             <img
-              src="../../../public/images/header/logo.png"
+              src="/images/header/logo.png"
               alt="logo"
             />
           </a>

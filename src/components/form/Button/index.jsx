@@ -6,7 +6,7 @@ function Button({
   label,
   onClick,
   type,
-  disabled,
+  disabled = false,
 }) {
   return (
     <button
@@ -24,7 +24,7 @@ Button.propTypes = {
   onClick: PropTypes.func.isRequired,
   label: PropTypes.string.isRequired,
   type: PropTypes.oneOf(['button', 'submit']).isRequired,
-  disabled: PropTypes.bool.isRequired,
+  disabled: PropTypes.bool,
 };
 
 export default Button;

@@ -5,23 +5,23 @@ function pageHairStyle() {
   const beautyImagesTest = [
     {
       name: 'Liso de festa',
-      src: '../../../public/images/hair-style/hair-style-1.jpeg',
+      src: '/images/hair-style/hair-style-1.jpeg',
     },
     {
       name: 'Preso lateral',
-      src: '../../../public/images/hair-style/hair-style-2.jpeg',
+      src: '/images/hair-style/hair-style-2.jpeg',
     },
     {
       name: 'Preso alto',
-      src: '../../../public/images/hair-style/hair-style-3.jpeg',
+      src: 'c/images/hair-style/hair-style-3.jpeg',
     },
     {
       name: 'Preso baixo',
-      src: '../../../public/images/hair-style/hair-style-4.jpeg',
+      src: '/images/hair-style/hair-style-4.jpeg',
     },
     {
       name: 'Babyliss',
-      src: '../../../public/images/hair-style/hair-style-5.jpeg',
+      src: '/images/hair-style/hair-style-5.jpeg',
     },
   ];
 
