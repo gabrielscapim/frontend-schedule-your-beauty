@@ -193,8 +193,10 @@ function PageSchedule() {
               includeDates={ datesToSchedule }
               locale={ ptBR }
               dateFormat="dd/MM/yyyy"
-              wrapperClassName={ styles['date-picker'] }
+              wrapperClassName={ inputWarningShouldAppear && eventDate.length === 0
+                ? styles['date-picker-wrong'] : styles['date-picker'] }
               placeholderText="Escolha a data do evento"
+              disabled={ confirmScheduleModalOpen }
             />
             <Select
               id="production-time-select"

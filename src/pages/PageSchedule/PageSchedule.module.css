@@ -92,7 +92,7 @@
 .input-wrong {
     border: 1px solid red;
     border-radius: 1px;
-    padding: 2px 1.5% 2px 2px;
+    padding: 2px 1.5% 2px 1.5%;
     height: 28px;
     margin-bottom: 24px;
     font-family: 'MuseoSansRounded-300';
