@@ -64,7 +64,7 @@ function PageSchedule() {
     if (eventTimesFromAPI) setIsEventTimesLoading(false);
 
     setTimesToSchedule(eventTimesFromAPI);
-    setState((prevState) => ({ ...prevState, eventTime: eventTimesFromAPI || [] }));
+    setState((prevState) => ({ ...prevState, eventTime: eventTimesFromAPI[0] || [] }));
   };
 
   useEffect(() => {
@@ -197,6 +197,7 @@ function PageSchedule() {
                 ? styles['date-picker-wrong'] : styles['date-picker'] }
               placeholderText="Escolha a data do evento"
               disabled={ confirmScheduleModalOpen }
+              minDate={ new Date() }
             />
             <Select
               id="production-time-select"

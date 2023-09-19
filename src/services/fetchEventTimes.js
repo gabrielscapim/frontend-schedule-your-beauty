@@ -1,4 +1,4 @@
-import { formatDate } from '../utils/formatDate';
+import formatDate from '../utils/formatDate';
 import apiRequest from './apiRequest';
 
 const fetchEventTimes = async (eventDate, productionType) => {
