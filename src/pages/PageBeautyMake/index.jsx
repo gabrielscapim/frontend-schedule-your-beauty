@@ -2,7 +2,7 @@ import ProductionCard from '../../components/ProductionCard';
 import styles from './PageBeautyMake.module.css';
 
 function pageBeautyMake() {
-  const beautyImagesTest = [
+  const beautyMakeObjects = [
     {
       name: 'Olhar esfumado',
       src: '/images/beauty/beauty-make-1.jpeg',
@@ -32,7 +32,7 @@ function pageBeautyMake() {
   return (
     <section className={ styles['page-container'] }>
       <div className={ styles['productions-container'] }>
-        { beautyImagesTest.map(({ name, src }, index) => (
+        { beautyMakeObjects.map(({ name, src }, index) => (
           <ProductionCard
             key={ `beauty-make-${index}` }
             name={ name }

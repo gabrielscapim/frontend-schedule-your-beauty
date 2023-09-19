@@ -2,7 +2,7 @@ import ProductionCard from '../../components/ProductionCard';
 import styles from './PageSpecialDayMake.module.css';
 
 function pageBeautyMake() {
-  const beautyImagesTest = [
+  const specialDayMakeObjects = [
     {
       name: 'Olhar dramático',
       src: '/images/special-day/special-day-make-1.jpeg',
@@ -44,7 +44,7 @@ function pageBeautyMake() {
   return (
     <section className={ styles['page-container'] }>
       <div className={ styles['productions-container'] }>
-        { beautyImagesTest.map(({ name, src }, index) => (
+        { specialDayMakeObjects.map(({ name, src }, index) => (
           <ProductionCard
             key={ `special-day-make-${index}` }
             name={ name }

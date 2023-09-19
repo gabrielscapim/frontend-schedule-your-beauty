@@ -2,7 +2,7 @@ import ProductionCard from '../../components/ProductionCard';
 import styles from './PageHairstyle.module.css';
 
 function pageHairStyle() {
-  const beautyImagesTest = [
+  const hairStyleObjects = [
     {
       name: 'Liso de festa',
       src: '/images/hair-style/hair-style-1.jpeg',
@@ -28,7 +28,7 @@ function pageHairStyle() {
   return (
     <section className={ styles['page-container'] }>
       <div className={ styles['productions-container'] }>
-        { beautyImagesTest.map(({ name, src }, index) => (
+        { hairStyleObjects.map(({ name, src }, index) => (
           <ProductionCard
             key={ `hairstyle-${index}` }
             name={ name }
