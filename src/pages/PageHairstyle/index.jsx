@@ -13,7 +13,7 @@ function pageHairStyle() {
     },
     {
       name: 'Preso alto',
-      src: 'c/images/hair-style/hair-style-3.jpeg',
+      src: '/images/hair-style/hair-style-3.jpeg',
     },
     {
       name: 'Preso baixo',

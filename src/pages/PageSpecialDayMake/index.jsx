@@ -29,15 +29,15 @@ function pageBeautyMake() {
     },
     {
       name: 'Pálpebra luz',
-      src: '/public/images/special-day/special-day-make-9.jpeg',
+      src: '/images/special-day/special-day-make-9.jpeg',
     },
     {
       name: 'Clássico de festa',
-      src: '/public/images/special-day/special-day-make-8.jpeg',
+      src: '/images/special-day/special-day-make-8.jpeg',
     },
     {
       name: 'Preto e prata',
-      src: '/public/images/special-day/special-day-make-10.jpeg',
+      src: '/images/special-day/special-day-make-10.jpeg',
     },
   ];
 
