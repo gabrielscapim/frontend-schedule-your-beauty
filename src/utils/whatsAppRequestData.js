@@ -17,11 +17,11 @@ const getWhatsAppRequestData = (scheduleData) => {
           parameters: [
             {
               type: 'text',
-              text: scheduleData.userName,
+              text: scheduleData.clientName,
             },
             {
               type: 'text',
-              text: scheduleData.userNumber,
+              text: scheduleData.clientNumber,
             },
             {
               type: 'text',

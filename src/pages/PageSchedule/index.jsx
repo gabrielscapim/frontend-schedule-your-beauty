@@ -9,7 +9,7 @@ import styles from './PageSchedule.module.css';
 import 'react-datepicker/dist/react-datepicker.css';
 import { isInputEmpty,
   isInputsCorrect,
-  isUserNumberCorrect } from '../../helpers/verifyScheduleInputs';
+  isClientNumberCorrect } from '../../helpers/verifyScheduleInputs';
 import Modal from '../../components/Modal';
 import whatsAppRequest from '../../services/whatsAppRequest';
 import ScheduleConfirmed from '../../components/ScheduleComponents/ScheduleConfirmed';
@@ -19,8 +19,8 @@ import fetchEventTimes from '../../services/fetchEventTimes';
 
 function PageSchedule() {
   const [state, setState] = useState({
-    userName: '',
-    userNumber: '',
+    clientName: '',
+    clientNumber: '',
     productionType: '',
     eventName: '',
     eventDate: '',
@@ -36,8 +36,8 @@ function PageSchedule() {
   const [isProductionLoading, setIsProductionsLoading] = useState(true);
   const [isEventTimesLoading, setIsEventTimesLoading] = useState(true);
   const {
-    userName,
-    userNumber,
+    clientName,
+    clientNumber,
     productionType,
     eventName,
     eventDate,
@@ -88,10 +88,10 @@ function PageSchedule() {
   const handleSchedule = () => {
     const isCorrect = isInputsCorrect(
       [eventDate, eventTime],
-      [userName, userNumber, eventName],
+      [clientName, clientNumber, eventName],
     );
 
-    if (!isCorrect || !isUserNumberCorrect(userNumber)) {
+    if (!isCorrect || !isClientNumberCorrect(clientNumber)) {
       return setInputWarningShouldAppear(true);
     }
 
@@ -130,30 +130,31 @@ function PageSchedule() {
           <div className={ styles['form-group-1'] }>
             <Input
               label="Nome"
-              id="event-user-name"
+              id="event-client-name"
               type="text"
-              inputValue={ userName }
+              inputValue={ clientName }
               placeHolder="Digite seu nome"
               maxInputLength={ 45 }
-              name="userName"
+              name="clientName"
               handleChange={ handleChange }
-              isInputCorrect={ isInputEmpty(userName) && inputWarningShouldAppear }
+              isInputCorrect={ isInputEmpty(clientName) && inputWarningShouldAppear }
             />
             <label
               className={ styles['input-label'] }
-              htmlFor="event-user-number"
+              htmlFor="event-client-number"
             >
               Contato (WhatsApp)
             </label>
             <MaskedInput
-              id="event-user-number"
+              id="event-client-number"
               mask={ ['(', /[1-9]/, /\d/, ')', ' ', /\d/, ' ', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/] }
-              value={ userNumber }
+              value={ clientNumber }
               placeholder="Digite seu número de WhatsApp"
-              name="userNumber"
+              name="clientNumber"
               onChange={ handleChange }
               guide={ false }
-              className={ (isInputEmpty(userNumber) || !isUserNumberCorrect(userNumber))
+              className={ (
+                isInputEmpty(clientNumber) || !isClientNumberCorrect(clientNumber))
                 && inputWarningShouldAppear ? styles['input-wrong'] : styles.input }
             />
             <Select
