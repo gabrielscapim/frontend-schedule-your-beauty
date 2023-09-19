@@ -25,7 +25,7 @@ const getWhatsAppRequestData = (scheduleData) => {
             },
             {
               type: 'text',
-              text: scheduleData.productionType,
+              text: scheduleData.productionName,
             },
             {
               type: 'text',

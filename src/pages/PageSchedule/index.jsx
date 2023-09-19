@@ -21,7 +21,7 @@ function PageSchedule() {
   const [state, setState] = useState({
     clientName: '',
     clientNumber: '',
-    productionType: '',
+    productionName: '',
     eventName: '',
     eventDate: '',
     eventTime: '',
@@ -38,7 +38,7 @@ function PageSchedule() {
   const {
     clientName,
     clientNumber,
-    productionType,
+    productionName,
     eventName,
     eventDate,
     eventTime,
@@ -50,7 +50,7 @@ function PageSchedule() {
     if (productionsFromAPI) setIsProductionsLoading(false);
     setProductions(productionsFromAPI || []);
     setState((prevState) => (
-      { ...prevState, productionType: productionsFromAPI ? productionsFromAPI[0] : '' }));
+      { ...prevState, productionName: productionsFromAPI ? productionsFromAPI[0] : '' }));
   };
 
   const getEventDates = async () => {
@@ -60,7 +60,7 @@ function PageSchedule() {
 
   const getEventTimes = async () => {
     setIsEventTimesLoading(true);
-    const eventTimesFromAPI = await fetchEventTimes(eventDate, productionType);
+    const eventTimesFromAPI = await fetchEventTimes(eventDate, productionName);
     if (eventTimesFromAPI) setIsEventTimesLoading(false);
 
     setTimesToSchedule(eventTimesFromAPI);
@@ -75,7 +75,7 @@ function PageSchedule() {
   useEffect(() => {
     if (eventDate !== '') getEventTimes();
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [eventDate, productionType]);
+  }, [eventDate, productionName]);
 
   const handleChange = ({ target }) => {
     const { name, value } = target;
@@ -161,8 +161,8 @@ function PageSchedule() {
               id="production-type-select"
               label="Selecione a sua produção"
               options={ productions }
-              inputValue={ productionType }
-              name="productionType"
+              inputValue={ productionName }
+              name="productionName"
               handleChange={ handleChange }
               disabled={ isProductionLoading }
               loading={ isProductionLoading }
