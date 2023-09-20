@@ -17,6 +17,7 @@ import fetchProductions from '../../services/fetchProductions';
 import fetchEventDates from '../../services/fetchEventDates';
 import fetchEventTimes from '../../services/fetchEventTimes';
 
+// eslint-disable-next-line complexity
 function PageSchedule() {
   const [state, setState] = useState({
     clientName: '',
@@ -210,7 +211,13 @@ function PageSchedule() {
               disabled={ isEventTimesLoading }
               loading={ isEventTimesLoading }
             />
-            <span className={ styles['date-advice'] }>
+            { timesToSchedule.length === 0 && eventDate !== '' && (
+              <span className={ styles['inputs-warning'] }>
+                Não existem horários disponíveis para
+                esse tipo de produção na data escolhida.
+              </span>
+            ) }
+            <span className={ styles['date-warning'] }>
               Caso você não tenha encontrado a data desejada, clique
               <span> </span>
               <a
@@ -224,14 +231,15 @@ function PageSchedule() {
               para entrar em contato comigo.
             </span>
             { inputWarningShouldAppear && (
-              <span className={ styles['inputs-advice'] }>
-                Preencha os campos obrigatórios
+              <span className={ styles['inputs-warning'] }>
+                Preencha os campos obrigatórios.
               </span>
             ) }
             <Button
               type="button"
               label="Agendar"
               onClick={ handleSchedule }
+              disabled={ timesToSchedule.length === 0 && eventDate !== '' }
             />
           </div>
         </form>
@@ -239,5 +247,4 @@ function PageSchedule() {
     </>
   );
 }
-
 export default PageSchedule;
