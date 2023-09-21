@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import DatePicker from 'react-datepicker';
 import ptBR from 'date-fns/locale/pt-BR';
 import { useState, useEffect } from 'react';
@@ -16,6 +17,7 @@ import ScheduleConfirmed from '../../components/ScheduleComponents/ScheduleConfi
 import fetchProductions from '../../services/fetchProductions';
 import fetchEventDates from '../../services/fetchEventDates';
 import fetchEventTimes from '../../services/fetchEventTimes';
+import scheduleDateTime from '../../services/scheduleDateTime';
 
 // eslint-disable-next-line complexity
 function PageSchedule() {
@@ -102,6 +104,10 @@ function PageSchedule() {
   const handleConfirmSchedule = async () => {
     try {
       setConfirmScheduleModalOpen(false);
+      const scheduleResponseError = await scheduleDateTime(state);
+      if (scheduleResponseError) {
+        return isScheduleFailed(true);
+      }
       setIsScheduleConfirmed(true);
       await whatsAppRequest(state);
     } catch (error) {
@@ -247,4 +253,5 @@ function PageSchedule() {
     </>
   );
 }
+
 export default PageSchedule;
