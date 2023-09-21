@@ -5,7 +5,7 @@ function Footer() {
     <footer className={ styles.footer }>
       <div>
         <a
-          href="https://wa.me/5544991343233?text=Oi%20Isa,%20gostaria%20de%20marcar%20uma%20produção!"
+          href="https://wa.me/5544991343233?text=Oi%20Isa,%20gostaria%20de%20mais%20informações%20sobre%20suas%20produções!"
           target="_blank"
           rel="noreferrer"
         >
