@@ -217,7 +217,9 @@ function PageSchedule() {
               disabled={ isEventTimesLoading }
               loading={ isEventTimesLoading }
             />
-            { timesToSchedule.length === 0 && eventDate !== '' && (
+            { timesToSchedule.length === 0
+            && eventDate !== ''
+            && !isEventTimesLoading && (
               <span className={ styles['inputs-warning'] }>
                 Não existem horários disponíveis para
                 esse tipo de produção na data escolhida.
