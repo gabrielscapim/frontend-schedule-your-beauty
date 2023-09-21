@@ -2,7 +2,7 @@ import apiRequest from './apiRequest';
 
 const fetchProductions = async () => {
   const productionsFromAPI = await apiRequest('get', '/production');
-  const productions = productionsFromAPI
+  const productions = productionsFromAPI[0].name
     ? productionsFromAPI.map(({ name, price }) => (
       `${name} (R$ ${price})`
     )) : undefined;
