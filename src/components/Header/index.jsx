@@ -6,8 +6,7 @@ function Header() {
     fontWeight: 'bold',
   };
   const location = window.location.href;
-  console.log(location);
-  console.log(location.includes('schedule'));
+
   return (
     <header className={ styles.header }>
       <nav>
@@ -15,7 +14,7 @@ function Header() {
           <a
             href="/schedule"
             className={ styles[navOptionClass] }
-            style={ location.includes('schedule') ? navLocationStyle : {} }
+            style={ location.includes('schedule-production') ? navLocationStyle : {} }
           >
             Agendar produção
           </a>

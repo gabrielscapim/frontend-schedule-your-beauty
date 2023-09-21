@@ -13,7 +13,7 @@ function AppRoutes() {
         <Route path="hairstyle" Component={ PageHairStyle } />
         <Route path="beauty-make" Component={ PageBeautyMake } />
         <Route path="special-day-make" Component={ PageSpecialDayMake } />
-        <Route path="schedule" Component={ PageSchedule } />
+        <Route path="schedule-production" Component={ PageSchedule } />
       </Routes>
     </BrowserRouter>
   );
