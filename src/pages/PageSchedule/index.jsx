@@ -121,7 +121,7 @@ function PageSchedule() {
   };
 
   return (
-    <>
+    <div>
       { isScheduleConfirmed && !isScheduleFailed && <ScheduleConfirmed /> }
       { isScheduleFailed && <ScheduleConfirmed isScheduleFailed /> }
       { !isScheduleConfirmed && !isScheduleFailed && (
@@ -250,7 +250,7 @@ function PageSchedule() {
           </div>
         </form>
       ) }
-    </>
+    </div>
   );
 }
 

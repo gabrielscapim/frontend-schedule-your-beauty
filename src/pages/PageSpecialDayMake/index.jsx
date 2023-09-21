@@ -1,7 +1,7 @@
 import ProductionCard from '../../components/ProductionCard';
 import styles from './PageSpecialDayMake.module.css';
 
-function pageBeautyMake() {
+function PageBeautyMake() {
   const specialDayMakeObjects = [
     {
       name: 'Olhar dramático',
@@ -56,4 +56,4 @@ function pageBeautyMake() {
   );
 }
 
-export default pageBeautyMake;
+export default PageBeautyMake;

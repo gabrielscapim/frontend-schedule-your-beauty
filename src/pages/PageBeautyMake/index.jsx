@@ -1,7 +1,7 @@
 import ProductionCard from '../../components/ProductionCard';
 import styles from './PageBeautyMake.module.css';
 
-function pageBeautyMake() {
+function PageBeautyMake() {
   const beautyMakeObjects = [
     {
       name: 'Olhar esfumado',
@@ -44,4 +44,4 @@ function pageBeautyMake() {
   );
 }
 
-export default pageBeautyMake;
+export default PageBeautyMake;

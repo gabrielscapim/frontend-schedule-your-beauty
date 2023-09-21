@@ -16,3 +16,9 @@
 body {
     background-color: #fff;
 }
+
+.App {
+    min-height: 99vh;
+    display: flex;
+    flex-direction: column;
+}

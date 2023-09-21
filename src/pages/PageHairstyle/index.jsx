@@ -1,7 +1,7 @@
 import ProductionCard from '../../components/ProductionCard';
 import styles from './PageHairstyle.module.css';
 
-function pageHairStyle() {
+function PageHairStyle() {
   const hairStyleObjects = [
     {
       name: 'Liso de festa',
@@ -40,4 +40,4 @@ function pageHairStyle() {
   );
 }
 
-export default pageHairStyle;
+export default PageHairStyle;
