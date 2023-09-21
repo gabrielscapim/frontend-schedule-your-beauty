@@ -6,7 +6,7 @@ function Header() {
     fontWeight: 'bold',
   };
   const location = window.location.href;
-
+  console.log(location);
   return (
     <header className={ styles.header }>
       <nav>
@@ -21,7 +21,7 @@ function Header() {
           <a
             href="/beauty-make"
             className={ styles[navOptionClass] }
-            style={ location.includes('beauty') ? navLocationStyle : {} }
+            style={ location.includes('beauty-make') ? navLocationStyle : {} }
           >
             Maquiagem Beauty
           </a>
