@@ -24,7 +24,7 @@ function PageMain() {
   ];
 
   const scheduleHandleClick = () => {
-    navigate('/schedule');
+    navigate('/schedule-production');
     navigate(0);
   };
 

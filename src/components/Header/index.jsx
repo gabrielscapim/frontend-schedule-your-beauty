@@ -12,7 +12,7 @@ function Header() {
       <nav>
         <div className={ styles['header-line-1'] }>
           <a
-            href="/schedule"
+            href="/schedule-production"
             className={ styles[navOptionClass] }
             style={ location.includes('schedule-production') ? navLocationStyle : {} }
           >
