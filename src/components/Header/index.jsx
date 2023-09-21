@@ -7,6 +7,7 @@ function Header() {
   };
   const location = window.location.href;
   console.log(location);
+  console.log(location.includes('schedule'));
   return (
     <header className={ styles.header }>
       <nav>
