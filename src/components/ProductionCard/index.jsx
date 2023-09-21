@@ -25,6 +25,7 @@ function ProductionCard({ name = '', src, principalPage, location }) {
           <span>{ name.toUpperCase() }</span>
         )}
         <img
+          loading="lazy"
           src={ src }
           alt="production"
           className={ styles['production-card-image'] }

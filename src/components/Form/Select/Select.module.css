@@ -1,0 +1,30 @@
+.select-container{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+}
+
+.select-container label {
+    margin-bottom: 8px;
+}
+
+.select {
+    height: 34px;
+    font-family: 'MuseoSansRounded-300';
+    background-color: #fff;
+    border: 1px solid gray;
+    padding: 2px 1.5% 2px 1.0%;
+}
+
+.select:focus {
+    outline: none;
+    border: 1px solid black;
+}
+
+.loading {    
+    background-color: #ffffff;
+    background-image: url("https://tjpi-teams-apps-balcao-virtual.azurefd.net/images/typing.gif");
+    background-size: 25px 25px;
+    background-position:16px center;
+    background-repeat: no-repeat;
+}

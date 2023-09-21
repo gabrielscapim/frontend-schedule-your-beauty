@@ -1,0 +1,13 @@
+i {
+    font-size: 64px;
+}
+
+.schedule-confirmed-container {
+    padding: 48px 24px 24px 24px;
+    font-family: 'MuseoSansRounded-300';
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}

@@ -1,34 +1,34 @@
 import ProductionCard from '../../components/ProductionCard';
 import styles from './PageHairstyle.module.css';
 
-function pageHairStyle() {
-  const beautyImagesTest = [
+function PageHairStyle() {
+  const hairStyleObjects = [
     {
       name: 'Liso de festa',
-      src: '../../../public/images/hair-style/hair-style-1.jpeg',
+      src: '/images/hair-style/hair-style-1.jpeg',
     },
     {
       name: 'Preso lateral',
-      src: '../../../public/images/hair-style/hair-style-2.jpeg',
+      src: '/images/hair-style/hair-style-2.jpeg',
     },
     {
       name: 'Preso alto',
-      src: '../../../public/images/hair-style/hair-style-3.jpeg',
+      src: '/images/hair-style/hair-style-3.jpeg',
     },
     {
       name: 'Preso baixo',
-      src: '../../../public/images/hair-style/hair-style-4.jpeg',
+      src: '/images/hair-style/hair-style-4.jpeg',
     },
     {
       name: 'Babyliss',
-      src: '../../../public/images/hair-style/hair-style-5.jpeg',
+      src: '/images/hair-style/hair-style-5.jpeg',
     },
   ];
 
   return (
     <section className={ styles['page-container'] }>
       <div className={ styles['productions-container'] }>
-        { beautyImagesTest.map(({ name, src }, index) => (
+        { hairStyleObjects.map(({ name, src }, index) => (
           <ProductionCard
             key={ `hairstyle-${index}` }
             name={ name }
@@ -40,4 +40,4 @@ function pageHairStyle() {
   );
 }
 
-export default pageHairStyle;
+export default PageHairStyle;

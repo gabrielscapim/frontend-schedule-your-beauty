@@ -7,12 +7,17 @@ function Header() {
   };
   const location = window.location.href;
 
-  console.log(('renderizou'));
-
   return (
     <header className={ styles.header }>
       <nav>
         <div className={ styles['header-line-1'] }>
+          <a
+            href="/schedule"
+            className={ styles[navOptionClass] }
+            style={ location.includes('schedule') ? navLocationStyle : {} }
+          >
+            Agendar produção
+          </a>
           <a
             href="/beauty-make"
             className={ styles[navOptionClass] }
@@ -38,7 +43,7 @@ function Header() {
         <div className={ styles['header-line-2'] }>
           <a href="/">
             <img
-              src="../../../public/images/header/logo.png"
+              src="/images/header/logo.png"
               alt="logo"
             />
           </a>

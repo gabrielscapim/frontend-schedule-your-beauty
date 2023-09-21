@@ -10,9 +10,15 @@
 
 @font-face {
     font-family: 'MuseoSansRounded-300';
-    src: url('../public/fonts/MuseoSansRounded-300.ttf') format('truetype');
+    src: url('/fonts/MuseoSansRounded-300.ttf') format('truetype');
 }
 
 body {
     background-color: #fff;
+}
+
+.App {
+    min-height: 99vh;
+    display: flex;
+    flex-direction: column;
 }

@@ -1,0 +1,30 @@
+.input-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+}
+
+.input-container label {
+    margin-bottom: 8px;
+}
+
+.input {
+    border: 1px solid gray;
+    border-radius: 1px;
+    padding: 2px 1.5% 2px 1.5%;
+    height: 28px;
+    font-family: 'MuseoSansRounded-300';
+}
+
+.input:focus {
+    outline: none;
+    border: 1px solid black;
+}
+
+.input-wrong {
+    border: 1px solid red;
+    border-radius: 1px;
+    padding: 2px 1.5% 2px 1.5%;
+    height: 28px;
+    font-family: 'MuseoSansRounded-300';
+}
