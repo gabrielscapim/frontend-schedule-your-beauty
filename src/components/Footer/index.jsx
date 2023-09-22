@@ -22,6 +22,9 @@ function Footer() {
       <span>
         Copyright © 2023 Isabela Colli. All Rights Reserved.
       </span>
+      <span>
+        Designed and developed by Gabriel Scapim.
+      </span>
     </footer>
   );
 }
