@@ -38,6 +38,7 @@ function PageSchedule() {
   const [productions, setProductions] = useState([]);
   const [isProductionLoading, setIsProductionsLoading] = useState(true);
   const [isEventTimesLoading, setIsEventTimesLoading] = useState(true);
+  const [isConfirmScheduleLoading, setIsConfirmScheduleLoading] = useState(false);
   const {
     clientName,
     clientNumber,
@@ -103,11 +104,13 @@ function PageSchedule() {
 
   const handleConfirmSchedule = async () => {
     try {
-      setConfirmScheduleModalOpen(false);
+      setIsConfirmScheduleLoading(true);
       const scheduleResponseError = await scheduleDateTime(state);
       if (scheduleResponseError) {
         return isScheduleFailed(true);
       }
+      setConfirmScheduleModalOpen(false);
+      setIsConfirmScheduleLoading(false);
       setIsScheduleConfirmed(true);
       await whatsAppRequest(state);
     } catch (error) {
@@ -130,9 +133,16 @@ function PageSchedule() {
             isOpen={ confirmScheduleModalOpen }
             onClose={ handleCloseModal }
             onConfirm={ handleConfirmSchedule }
+            isLoading={ isConfirmScheduleLoading }
           >
-            <h3>Confirmação de agendamento</h3>
-            <p>Deseja confirmar o agendamento de sua produção?</p>
+            { isConfirmScheduleLoading ? (
+              <h3>Só um instante...</h3>
+            ) : (
+              <>
+                <h3>Confirmação de agendamento</h3>
+                <p>Deseja confirmar o agendamento de sua produção?</p>
+              </>
+            ) }
           </Modal>
           <div className={ styles['form-group-1'] }>
             <Input

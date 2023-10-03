@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const URL = import.meta.env.VITE_API_URL;
+const URL = 'https://backend-schedule-your-beauty-production.up.railway.app';
 
 const apiRequest = async (method, endpoint, data = null) => {
   try {
