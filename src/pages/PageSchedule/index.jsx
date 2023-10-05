@@ -18,6 +18,7 @@ import fetchProductions from '../../services/fetchProductions';
 import fetchEventDates from '../../services/fetchEventDates';
 import fetchEventTimes from '../../services/fetchEventTimes';
 import scheduleDateTime from '../../services/scheduleDateTime';
+import calculateTwoDaysInAdvance from '../../helpers/calculateTwoDaysInAdvance';
 
 // eslint-disable-next-line complexity
 function PageSchedule() {
@@ -215,7 +216,7 @@ function PageSchedule() {
                 ? styles['date-picker-wrong'] : styles['date-picker'] }
               placeholderText="Escolha a data do evento"
               disabled={ confirmScheduleModalOpen }
-              minDate={ new Date() }
+              minDate={ calculateTwoDaysInAdvance() }
             />
             <Select
               id="production-time-select"

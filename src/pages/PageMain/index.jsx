@@ -9,22 +9,22 @@ function PageMain() {
     {
       src: '/images/primeira.jpeg',
       name: 'maquiagem beauty',
-      location: 'beauty-make',
+      location: 'maquiagem-beauty',
     },
     {
       src: '/images/segunda.jpeg',
       name: 'maquiagem special day',
-      location: 'special-day-make',
+      location: 'maquiagem-special-day',
     },
     {
       src: '/images/terceira.jpeg',
       name: 'penteados',
-      location: 'hairstyle',
+      location: 'penteados',
     },
   ];
 
   const scheduleHandleClick = () => {
-    navigate('/schedule-production');
+    navigate('/agendar-producao');
     navigate(0);
   };
 
