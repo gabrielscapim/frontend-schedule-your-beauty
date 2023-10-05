@@ -12,9 +12,9 @@ function Header() {
       <nav>
         <div className={ styles['header-line-1'] }>
           <a
-            href="/agendar-produção"
+            href="/agendar-producao"
             className={ styles[navOptionClass] }
-            style={ location.includes('agendar-produção') ? navLocationStyle : {} }
+            style={ location.includes('agendar-producao') ? navLocationStyle : {} }
           >
             Agendar produção
           </a>

@@ -24,7 +24,7 @@ function PageMain() {
   ];
 
   const scheduleHandleClick = () => {
-    navigate('/agendar-produção');
+    navigate('/agendar-producao');
     navigate(0);
   };
 

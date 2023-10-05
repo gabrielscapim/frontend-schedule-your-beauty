@@ -15,7 +15,7 @@ function AppRoutes() {
         <Route path="penteados" Component={ PageHairStyle } />
         <Route path="maquiagem-beauty" Component={ PageBeautyMake } />
         <Route path="maquiagem-special-day" Component={ PageSpecialDayMake } />
-        <Route path="agendar-produção" Component={ PageSchedule } />
+        <Route path="agendar-producao" Component={ PageSchedule } />
       </Routes>
     </BrowserRouter>
   );
