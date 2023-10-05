@@ -12,30 +12,30 @@ function Header() {
       <nav>
         <div className={ styles['header-line-1'] }>
           <a
-            href="/schedule-production"
+            href="/agendar-produção"
             className={ styles[navOptionClass] }
-            style={ location.includes('schedule-production') ? navLocationStyle : {} }
+            style={ location.includes('agendar-produção') ? navLocationStyle : {} }
           >
             Agendar produção
           </a>
           <a
-            href="/beauty-make"
+            href="/maquiagem-beauty"
             className={ styles[navOptionClass] }
-            style={ location.includes('beauty-make') ? navLocationStyle : {} }
+            style={ location.includes('maquiagem-beauty') ? navLocationStyle : {} }
           >
             Maquiagem Beauty
           </a>
           <a
-            href="/special-day-make"
+            href="/maquiagem-special-day"
             className={ styles[navOptionClass] }
-            style={ location.includes('special-day') ? navLocationStyle : {} }
+            style={ location.includes('maquiagem-special-day') ? navLocationStyle : {} }
           >
             Maquiagem Special Day
           </a>
           <a
-            href="/hairstyle"
+            href="/penteados"
             className={ styles[navOptionClass] }
-            style={ location.includes('hairstyle') ? navLocationStyle : {} }
+            style={ location.includes('penteados') ? navLocationStyle : {} }
           >
             Penteados
           </a>

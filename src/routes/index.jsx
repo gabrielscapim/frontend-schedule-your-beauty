@@ -12,10 +12,10 @@ function AppRoutes() {
       <Routes>
         <Route path="*" Component={ PageNotFound } />
         <Route exact path="/" Component={ PageMain } />
-        <Route path="hairstyle" Component={ PageHairStyle } />
-        <Route path="beauty-make" Component={ PageBeautyMake } />
-        <Route path="special-day-make" Component={ PageSpecialDayMake } />
-        <Route path="schedule-production" Component={ PageSchedule } />
+        <Route path="penteados" Component={ PageHairStyle } />
+        <Route path="maquiagem-beauty" Component={ PageBeautyMake } />
+        <Route path="maquiagem-special-day" Component={ PageSpecialDayMake } />
+        <Route path="agendar-produção" Component={ PageSchedule } />
       </Routes>
     </BrowserRouter>
   );
