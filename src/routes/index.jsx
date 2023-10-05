@@ -4,11 +4,13 @@ import PageHairStyle from '../pages/PageHairstyle';
 import PageBeautyMake from '../pages/PageBeautyMake';
 import PageSpecialDayMake from '../pages/PageSpecialDayMake';
 import PageSchedule from '../pages/PageSchedule';
+import PageNotFound from '../pages/PageNotFound';
 
 function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="*" Component={ PageNotFound } />
         <Route exact path="/" Component={ PageMain } />
         <Route path="hairstyle" Component={ PageHairStyle } />
         <Route path="beauty-make" Component={ PageBeautyMake } />

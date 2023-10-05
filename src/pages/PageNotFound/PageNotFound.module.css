@@ -1,0 +1,27 @@
+.page-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    font-family: 'MuseoSansRounded-300';
+}
+
+.page-container h2 {
+    font-size: 48px;
+}
+
+.page-container h3 {
+    font-size: 20px;
+}
+
+@media all and (max-width: 824px) {
+    .page-container h2 {
+        font-size: 32px;
+    }
+    
+    .page-container h3 {
+        font-size: 16px;
+    }
+}
