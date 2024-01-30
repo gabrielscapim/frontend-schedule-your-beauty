@@ -20,7 +20,7 @@ function Footer() {
         </a>
       </div>
       <span>
-        Copyright © 2023 Isabela Colli. All Rights Reserved.
+        Copyright © 2024 Isabela Colli. All Rights Reserved.
       </span>
       <span>
         Designed and developed by Gabriel Scapim.
