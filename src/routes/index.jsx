@@ -3,7 +3,6 @@ import PageMain from '../pages/PageMain';
 import PageHairStyle from '../pages/PageHairstyle';
 import PageBeautyMake from '../pages/PageBeautyMake';
 import PageSpecialDayMake from '../pages/PageSpecialDayMake';
-import PageSchedule from '../pages/PageSchedule';
 import PageNotFound from '../pages/PageNotFound';
 
 function AppRoutes() {
@@ -15,7 +14,6 @@ function AppRoutes() {
         <Route path="penteados" Component={ PageHairStyle } />
         <Route path="maquiagem-beauty" Component={ PageBeautyMake } />
         <Route path="maquiagem-special-day" Component={ PageSpecialDayMake } />
-        <Route path="agendar-producao" Component={ PageSchedule } />
       </Routes>
     </BrowserRouter>
   );

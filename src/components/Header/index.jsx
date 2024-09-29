@@ -12,13 +12,6 @@ function Header() {
       <nav>
         <div className={ styles['header-line-1'] }>
           <a
-            href="/agendar-producao"
-            className={ styles[navOptionClass] }
-            style={ location.includes('agendar-producao') ? navLocationStyle : {} }
-          >
-            Agendar produção
-          </a>
-          <a
             href="/maquiagem-beauty"
             className={ styles[navOptionClass] }
             style={ location.includes('maquiagem-beauty') ? navLocationStyle : {} }
